@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography, Divider, Stack } from "@mui/material";
-import { bmiPrime, healthyWeightRange } from "../utils/bmi";
+import { bmiPrime, healthyWeightRange } from "../../utils/bmi";
 
 export default function BmiResult({ bmi, category, height }) {
   const prime = bmiPrime(bmi);
