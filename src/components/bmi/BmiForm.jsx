@@ -32,8 +32,11 @@ export default function BmiForm({ onCalculate }) {
     >
       <Card
         sx={{
-          width: "100%",
-          maxWidth:"80%",
+          width: {
+            xs: "100%",   // mobile
+            sm: "90%",   // tablet
+            md: "80%"     // desktop and up
+          },
           borderRadius: 5,
           boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
         }}

@@ -25,7 +25,7 @@ export default function CalorieForm({ onCalculate }) {
     height: "",
     weight: "",
     activity: "",
-    goal:"maintain"
+    goal: "maintain"
   });
 
   const handleChange = e =>
@@ -44,7 +44,13 @@ export default function CalorieForm({ onCalculate }) {
 
   return (
     <Box display="flex" justifyContent="center">
-      <Card sx={{ maxWidth: "80%", width: "100%", borderRadius: 5 }}>
+      <Card sx={{
+        width: {
+          xs: "100%",   // mobile
+          sm: "90%",   // tablet
+          md: "80%"     // desktop and up
+        }, borderRadius: 5
+      }}>
         <CardContent sx={{ p: { xs: 4, md: 5 } }}>
           <Typography variant="h5" fontWeight={600} mb={1}>
             Calorie Calculator

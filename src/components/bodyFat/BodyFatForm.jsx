@@ -40,7 +40,13 @@ export default function BodyFatForm({ onCalculate }) {
 
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
-      <Card sx={{ width: "100%", maxWidth:"80%", borderRadius: 5 }}>
+      <Card sx={{
+        width: {
+          xs: "100%",   // mobile
+          sm: "90%",   // tablet
+          md: "80%"     // desktop and up
+        }, borderRadius: 5
+      }}>
         <CardContent sx={{ p: { xs: 4, md: 5 } }}>
           <Typography variant="h5" fontWeight={600} mb={1}>
             Body Fat Calculator
