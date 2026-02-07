@@ -12,14 +12,27 @@ import Resources from "./components/bmi/Resources";
 // Body Fat
 import BodyFatForm from "./components/bodyFat/BodyFatForm";
 import BodyFatEducation from "./components/bodyFat/BodyFatEducation";
+import BodyFatResult from "./components/bodyFat/BodyFatResult";
 
 // Utils
 import { calculateBMI, getBMICategory } from "./utils/bmi";
 import { calculateCalories, proteinRequirement } from "./utils/calories";
+import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyfat";
 
 export default function App() {
   const [result, setResult] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
+  const [bodyFatResult, setBodyFatResult] = useState(null);
+
+  const handleBodyFatCalculate = data => {
+    const result = calculateBodyFat(data);
+    const category = getBodyFatCategory(result.bodyFatPercent, data.gender);
+
+    setBodyFatResult({
+      ...result,
+      category
+    });
+  };
 
   const handleCalculate = data => {
     const bmi = calculateBMI(data.weight, data.height);
@@ -47,7 +60,6 @@ export default function App() {
     >
       <Container maxWidth="md">
         <Header />
-
         {/* ===== TABS ===== */}
         <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
           <Tabs
@@ -92,7 +104,15 @@ export default function App() {
 
           {/* === BODY FAT TAB === */}
           {activeTab === 1 && <>
-            <BodyFatForm />
+            <BodyFatForm onCalculate={handleBodyFatCalculate} />
+            {bodyFatResult && (
+              <BodyFatResult
+                bodyFatPercent={bodyFatResult.bodyFatPercent}
+                category={bodyFatResult.category}
+                fatMass={bodyFatResult.fatMass}
+                leanMass={bodyFatResult.leanMass}
+              />
+            )}
             <BodyFatEducation />
           </>}
         </Stack>
