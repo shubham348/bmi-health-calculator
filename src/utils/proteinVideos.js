@@ -44,6 +44,10 @@ export const youtubeChannels = [
     url: "https://www.youtube.com/@FitTuber"
   },
   {
+    name: "GunjanShouts",
+    url: "https://www.youtube.com/@GunjanShouts"
+  },
+  {
     name: "Food Fitness & Fun",
     url: "https://www.youtube.com/@FoodFitnessFun"
   },
@@ -324,8 +328,8 @@ const paneerRecipies = [
     category: Paneer
   },
   {
-    url:"https://www.youtube.com/watch?v=ZL5dyFPn88Q",
-    category:Paneer
+    url: "https://www.youtube.com/watch?v=ZL5dyFPn88Q",
+    category: Paneer
   }
 ]
 
