@@ -134,7 +134,7 @@ export default function ProteinRecipes() {
                     gap: 3,
                     justifyContent: "center",
                     maxHeight:"600px",
-                    overflow:"scroll"
+                    overflow:"auto"
                   }}
                 >
                   {filteredVideos.map((video, i) => (
