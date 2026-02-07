@@ -24,6 +24,7 @@ import ProteinRecipes from "./components/protein/ProteinRecipes";
 import { calculateBMI, getBMICategory } from "./utils/bmi";
 import { calculateCalories, proteinRequirement, calculateProtein } from "./utils/calories";
 import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyFat";
+import ProteinChannels from "./components/protein/ProteinChannels";
 
 
 export default function App() {
@@ -161,6 +162,7 @@ export default function App() {
             <Stack spacing={4}>
               <ProteinSources />
               <ProteinRecipes/>
+              <ProteinChannels/>
             </Stack>
           )}
 

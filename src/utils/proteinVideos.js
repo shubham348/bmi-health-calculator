@@ -30,6 +30,34 @@ export function formatYoutubeUrls(urls = []) {
         .filter(Boolean);
 }
 
+export const youtubeChannels = [
+  {
+    name: "Fit Tuber",
+    url: "https://www.youtube.com/@FitTuber"
+  },
+  {
+    name: "Food Fitness & Fun",
+    url: "https://www.youtube.com/@FoodFitnessFun"
+  },
+  {
+    name: "Rohit Khatri Fitness",
+    url: "https://www.youtube.com/@RohitKhatriFitness"
+  },
+  {
+    name: "Guru Mann Fitness",
+    url: "https://www.youtube.com/@GuruMannFitness"
+  },
+  {
+    name: "MyFitnessPal India",
+    url: "https://www.youtube.com/@myfitnesspal"
+  },
+  {
+    name:"Yatinder Singh",
+    url:"https://www.youtube.com/@YatinderSinghOfficial"
+  }
+];
+
+
 export const proteinVideoUrls = [
     "https://www.youtube.com/watch?v=mK5Zv1Gi67A",
     "https://www.youtube.com/watch?v=oCkOQUsEGEo",
@@ -40,6 +68,13 @@ export const proteinVideoUrls = [
     "https://www.youtube.com/watch?v=AF8ykw6IKQQ",
     "https://www.youtube.com/watch?v=n9YgUY9MZjc",
     "https://www.youtube.com/watch?v=JFpx2mwBqLg",
-    "https://www.youtube.com/watch?v=hsATyLoy9vU"
+    "https://www.youtube.com/watch?v=hsATyLoy9vU",
+    "https://www.youtube.com/watch?v=KDfj0JusPS8",
+    "https://www.youtube.com/watch?v=ZTIrrJ2k0LY",
+    "https://www.youtube.com/watch?v=1rxqZWsBGHc",
+    "https://www.youtube.com/watch?v=-8QYDGpsG-M",
+    "https://www.youtube.com/watch?v=ojT5tD1zow8",
+    "https://www.youtube.com/watch?v=MmqwBZ2dX4s",
+    "https://www.youtube.com/watch?v=Oxg9hYiGM2M"
 
 ];
