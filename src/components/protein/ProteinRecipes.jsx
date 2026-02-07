@@ -97,21 +97,6 @@ export default function ProteinRecipes() {
                             }}
                           />
                         </Box>
-
-                        {/* Meta */}
-                        <Box sx={{ p: 2 }}>
-                          <Typography fontWeight={600}>
-                            {video.title}
-                          </Typography>
-
-                          <Typography
-                            variant="body2"
-                            color="text.secondary"
-                            mb={1}
-                          >
-                            {video.channel}
-                          </Typography>
-                        </Box>
                       </Card>
                     </Grid>
                   ))}
