@@ -1,7 +1,7 @@
 const Chicken = "Chicken";
 const Egg = "Eggs";
 const Oats = "Oats";
-const Veg = "Veg";
+const General = "General";
 const Snacks = "Snacks";
 const Breakfast = "Breakfasts";
 const Paneer = "Paneer"
@@ -333,6 +333,7 @@ const paneerRecipies = [
   }
 ]
 
+
 export const proteinVideoUrls = [
   "https://www.youtube.com/watch?v=mJ1iIiVV0mM",
   "https://www.youtube.com/watch?v=_UG_FZUDO24",
@@ -356,11 +357,12 @@ export const proteinVideoUrls = [
   "https://www.youtube.com/watch?v=MmqwBZ2dX4s",
   "https://www.youtube.com/watch?v=Oxg9hYiGM2M",
 
+  ...breakfastRecipies,
+  ...paneerRecipies,
+  ...oatsRecipies,
   ...eggrecipies,
   ...chickenRecipies,
-  ...oatsRecipies,
   ...snackRecipies,
-  ...breakfastRecipies,
-  ...paneerRecipies
+
 ];
 

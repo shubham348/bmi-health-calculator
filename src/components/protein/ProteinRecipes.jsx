@@ -46,7 +46,6 @@ export default function ProteinRecipes() {
      FILTER VIDEOS BY CATEGORY
   =============================== */
   const filteredVideos = useMemo(() => {
-    if (selectedCategory === "general") return proteinVideos;
     return proteinVideos.filter(
       v => v.category === selectedCategory
     );
@@ -119,7 +118,7 @@ export default function ProteinRecipes() {
                     {categories.map(cat => (
                       <option key={cat} value={cat}>
                         {cat === "general"
-                          ? "All Recipes"
+                          ? "Gereral"
                           : cat.charAt(0).toUpperCase() + cat.slice(1)}
                       </option>
                     ))}
