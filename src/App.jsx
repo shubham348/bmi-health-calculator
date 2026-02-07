@@ -92,6 +92,9 @@ export default function App() {
               setActiveTab(value);
               setResult(null); // reset BMI result when switching tabs
             }}
+            variant="scrollable"
+            scrollButtons="auto"
+            allowScrollButtonsMobile
             textColor="primary"
             indicatorColor="primary"
             sx={{
@@ -161,8 +164,8 @@ export default function App() {
           {activeTab === 3 && (
             <Stack spacing={4}>
               <ProteinSources />
-              <ProteinRecipes/>
-              <ProteinChannels/>
+              <ProteinRecipes />
+              <ProteinChannels />
             </Stack>
           )}
 
