@@ -1,0 +1,47 @@
+export const proteinSources = {
+  veg: [
+    { name: "Soy Chunks (Nutrela, cooked)", protein: 27, calories: 170, unit: "50 g dry" },
+    { name: "Whey Protein", protein: 24, calories: 120, unit: "1 scoop (30 g)" },
+    { name: "Besan (Gram Flour)", protein: 22, calories: 387, unit: "100 g" },
+    { name: "Paneer (low fat)", protein: 18, calories: 200, unit: "100 g" },
+    { name: "Paneer (regular)", protein: 18, calories: 265, unit: "100 g" },
+    { name: "Masoor Dal", protein: 18, calories: 230, unit: "1 cup cooked" },
+    { name: "Boiled Soybeans", protein: 16, calories: 173, unit: "100 g" },
+    { name: "Chana Dal", protein: 15, calories: 220, unit: "1 cup cooked" },
+    { name: "Rajma", protein: 15, calories: 225, unit: "1 cup cooked" },
+    { name: "Moong Dal", protein: 14, calories: 210, unit: "1 cup cooked" },
+    { name: "Chole (Chickpeas)", protein: 14, calories: 240, unit: "1 cup cooked" },
+    { name: "Toor Dal (Arhar)", protein: 13, calories: 200, unit: "1 cup cooked" },
+    { name: "Lobia (Black-eyed peas)", protein: 13, calories: 200, unit: "1 cup cooked" },
+    { name: "Greek Yogurt", protein: 10, calories: 59, unit: "100 g" },
+    { name: "Milk (toned)", protein: 8, calories: 100, unit: "1 glass (250 ml)" },
+    { name: "Quinoa", protein: 8, calories: 220, unit: "1 cup cooked" },
+    { name: "Chana Sprouts", protein: 8, calories: 120, unit: "1 cup" },
+    { name: "Pumpkin Seeds", protein: 8, calories: 150, unit: "2 tbsp" },
+    { name: "Roasted Chana", protein: 7, calories: 120, unit: "1 small bowl (30 g)" },
+    { name: "Moong Sprouts", protein: 7, calories: 90, unit: "1 cup" },
+    { name: "Peanuts (roasted)", protein: 7, calories: 170, unit: "1 handful (30 g)" },
+    { name: "Oats", protein: 6, calories: 150, unit: "40 g dry" },
+    { name: "Almonds", protein: 6, calories: 170, unit: "10–12 almonds" },
+    { name: "Cashews", protein: 5, calories: 155, unit: "8–10 cashews" },
+    { name: "Brown Rice", protein: 5, calories: 215, unit: "1 cup cooked" },
+    { name: "Chia Seeds", protein: 5, calories: 120, unit: "2 tbsp" },
+    { name: "Curd (Dahi)", protein: 4, calories: 60, unit: "1 cup (150 g)" },
+    { name: "Flax Seeds", protein: 4, calories: 110, unit: "2 tbsp" },
+    { name: "Whole Wheat Roti", protein: 3, calories: 100, unit: "1 medium roti" }
+  ],
+
+  nonVeg: [
+    { name: "Tuna", protein: 30, calories: 180, unit: "100 g cooked" },
+    { name: "Chicken Breast (skinless)", protein: 26, calories: 165, unit: "100 g cooked" },
+    { name: "Mutton (lean)", protein: 25, calories: 294, unit: "100 g cooked" },
+    { name: "Whey Protein", protein: 24, calories: 120, unit: "1 scoop (30 g)" },
+    { name: "Prawns", protein: 24, calories: 99, unit: "100 g cooked" },
+    { name: "Catla Fish", protein: 23, calories: 150, unit: "100 g cooked" },
+    { name: "Rohu Fish", protein: 22, calories: 140, unit: "100 g cooked" },
+    { name: "Sardines", protein: 21, calories: 180, unit: "100 g cooked" },
+    { name: "Chicken Curry (home style)", protein: 20, calories: 240, unit: "1 cup" },
+    { name: "Egg Whites", protein: 11, calories: 55, unit: "3 egg whites" },
+    { name: "Egg", protein: 6, calories: 70, unit: "1 large egg" }
+  ]
+};

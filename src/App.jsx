@@ -1,28 +1,36 @@
 import { useState } from "react";
 import { Container, Stack, Box, Tabs, Tab } from "@mui/material";
-
 import Header from "./components/Header";
-
 // BMI
 import BmiForm from "./components/bmi/BmiForm";
 import BmiResult from "./components/bmi/BmiResult";
 import BmiEducation from "./components/bmi/BmiEducation";
 import Resources from "./components/bmi/Resources";
-
 // Body Fat
 import BodyFatForm from "./components/bodyFat/BodyFatForm";
 import BodyFatEducation from "./components/bodyFat/BodyFatEducation";
 import BodyFatResult from "./components/bodyFat/BodyFatResult";
+// CALORIES
+import CalorieForm from "./components/calorie/CalorieForm";
+import CalorieResult from "./components/calorie/CalorieResult";
+import CalorieEducation from "./components/calorie/CalorieEducation";
+import ProteinResult from "./components/calorie/ProteinResult";
+
+//Protien
+import ProteinSources from "./components/protein/ProteinSources";
+import ProteinRecipes from "./components/protein/ProteinRecipes";
 
 // Utils
 import { calculateBMI, getBMICategory } from "./utils/bmi";
-import { calculateCalories, proteinRequirement } from "./utils/calories";
+import { calculateCalories, proteinRequirement, calculateProtein } from "./utils/calories";
 import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyfat";
+
 
 export default function App() {
   const [result, setResult] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
   const [bodyFatResult, setBodyFatResult] = useState(null);
+  const [calorieResult, setCalorieResult] = useState(null);
 
   const handleBodyFatCalculate = data => {
     const result = calculateBodyFat(data);
@@ -50,12 +58,27 @@ export default function App() {
     });
   };
 
+  const handleCalorieCalculate = data => {
+    const calories = calculateCalories(data);
+    const protein = calculateProtein(
+      data.weight,
+      data.goal
+    );
+
+    setCalorieResult({
+      ...calories,
+      protein
+    });
+  };
+
+
   return (
     <Box
+      style={{}}
       sx={{
         minHeight: "100vh",
-        background: "linear-gradient(180deg, #f0fdf4 0%, #ffffff 60%)",
-        py: 6
+        py: 6,
+        background: "linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12)"
       }}
     >
       <Container maxWidth="md">
@@ -79,6 +102,8 @@ export default function App() {
           >
             <Tab label="BMI Calculator" />
             <Tab label="Body Fat Calculator" />
+            <Tab label="Calorie Calculator" />
+            <Tab label="Protien Sources and Recipies" />
           </Tabs>
         </Box>
 
@@ -115,6 +140,30 @@ export default function App() {
             )}
             <BodyFatEducation />
           </>}
+
+          {activeTab === 2 && (
+            <Stack spacing={4}>
+              <CalorieForm onCalculate={handleCalorieCalculate} />
+              {calorieResult && (
+                <>
+                  <CalorieResult
+                    maintenance={calorieResult.maintenance}
+                    loss={calorieResult.weightLoss}
+                    gain={calorieResult.weightGain}
+                  />
+                  <ProteinResult protein={calorieResult.protein} />
+                </>
+              )}
+              <CalorieEducation />
+            </Stack>
+          )}
+          {activeTab === 3 && (
+            <Stack spacing={4}>
+              <ProteinSources />
+              <ProteinRecipes/>
+            </Stack>
+          )}
+
         </Stack>
       </Container>
     </Box>
