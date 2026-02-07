@@ -23,7 +23,7 @@ import ProteinRecipes from "./components/protein/ProteinRecipes";
 // Utils
 import { calculateBMI, getBMICategory } from "./utils/bmi";
 import { calculateCalories, proteinRequirement, calculateProtein } from "./utils/calories";
-import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyfat";
+import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyFat";
 
 
 export default function App() {
