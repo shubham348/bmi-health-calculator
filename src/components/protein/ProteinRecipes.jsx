@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   Card,
   CardContent,
@@ -9,23 +9,52 @@ import {
   AccordionDetails,
   Dialog,
   DialogContent,
-  IconButton,
+  IconButton
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
-import { formatYoutubeUrls,proteinVideoUrls } from "../../utils/proteinVideos";
+
+import {
+  formatYoutubeUrls,
+  proteinVideoUrls
+} from "../../utils/proteinVideos";
 
 export default function ProteinRecipes() {
   const [open, setOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("general");
 
+  /* ===============================
+     FORMAT & NORMALIZE VIDEO DATA
+  =============================== */
   const proteinVideos = useMemo(() => {
-  return formatYoutubeUrls(proteinVideoUrls);
-}, []);
+    return formatYoutubeUrls(proteinVideoUrls);
+  }, []);
 
+  /* ===============================
+     BUILD CATEGORY LIST
+  =============================== */
+  const categories = useMemo(() => {
+    const set = new Set(
+      proteinVideos.map(v => v.category || "general")
+    );
+    return ["general", ...Array.from(set).filter(c => c !== "general")];
+  }, [proteinVideos]);
 
+  /* ===============================
+     FILTER VIDEOS BY CATEGORY
+  =============================== */
+  const filteredVideos = useMemo(() => {
+    if (selectedCategory === "general") return proteinVideos;
+    return proteinVideos.filter(
+      v => v.category === selectedCategory
+    );
+  }, [proteinVideos, selectedCategory]);
+
+  /* ===============================
+     HANDLERS
+  =============================== */
   const handleOpen = video => {
     setActiveVideo(video);
     setOpen(true);
@@ -47,39 +76,75 @@ export default function ProteinRecipes() {
             "&::before": { display: "none" }
           }}
         >
-          {/* HEADER */}
-          <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
+          {/* ===== HEADER ===== */}
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            sx={{ px: 4, py: 2 }}
+          >
             <Typography variant="h5" fontWeight={600}>
               High Protein Recipe Videos
             </Typography>
           </AccordionSummary>
 
-          {/* CONTENT */}
+          {/* ===== CONTENT ===== */}
           <AccordionDetails>
             <Card elevation={0}>
               <CardContent sx={{ p: { xs: 2, md: 3 } }}>
-                <Typography color="text.secondary" mb={4}>
-                  Curated Indian high-protein recipes for gym, muscle gain, fat
-                  loss, and budget-friendly diets. Tap to watch instantly.
+                <Typography color="text.secondary" mb={3}>
+                  Curated Indian high-protein recipes for muscle gain, fat loss,
+                  and budget-friendly diets. Select an ingredient to filter.
                 </Typography>
 
-                {/* VIDEO LIST */}
+                {/* ===== CATEGORY DROPDOWN ===== */}
+                <Box sx={{ mb: 4, maxWidth: 280 }}>
+                  <Typography
+                    variant="body2"
+                    fontWeight={500}
+                    mb={1}
+                  >
+                    Filter by ingredient
+                  </Typography>
+
+                  <select
+                    value={selectedCategory}
+                    onChange={e => setSelectedCategory(e.target.value)}
+                    style={{
+                      width: "100%",
+                      padding: "10px 12px",
+                      borderRadius: 8,
+                      border: "1px solid #ddd",
+                      fontSize: 14
+                    }}
+                  >
+                    {categories.map(cat => (
+                      <option key={cat} value={cat}>
+                        {cat === "general"
+                          ? "All Recipes"
+                          : cat.charAt(0).toUpperCase() + cat.slice(1)}
+                      </option>
+                    ))}
+                  </select>
+                </Box>
+
+                {/* ===== VIDEO GRID ===== */}
                 <Box
                   sx={{
                     display: "flex",
                     flexWrap: "wrap",
                     gap: 3,
-                    justifyContent: "center"
+                    justifyContent: "center",
+                    maxHeight:"600px",
+                    overflow:"scroll"
                   }}
                 >
-                  {proteinVideos.map((video, i) => (
+                  {filteredVideos.map((video, i) => (
                     <Box
                       key={i}
                       sx={{
                         flex: {
-                          xs: "1 1 100%", // mobile
-                          sm: "1 1 48%",  // tablet
-                          md: "1 1 30%"   // desktop (max 3)
+                          xs: "1 1 100%",
+                          sm: "1 1 48%",
+                          md: "1 1 30%"
                         },
                         maxWidth: {
                           xs: "100%",
@@ -106,7 +171,7 @@ export default function ProteinRecipes() {
                           <Box
                             component="img"
                             src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
-                            alt={video.title}
+                            alt="High protein recipe"
                             sx={{
                               width: "100%",
                               height: 180,
@@ -129,6 +194,12 @@ export default function ProteinRecipes() {
                       </Card>
                     </Box>
                   ))}
+
+                  {filteredVideos.length === 0 && (
+                    <Typography color="text.secondary">
+                      No recipes found for this category.
+                    </Typography>
+                  )}
                 </Box>
               </CardContent>
             </Card>
@@ -136,12 +207,18 @@ export default function ProteinRecipes() {
         </Accordion>
       </Card>
 
-      {/* VIDEO PLAYER DIALOG */}
+      {/* ===== VIDEO PLAYER DIALOG ===== */}
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogContent sx={{ p: 0, position: "relative" }}>
           <IconButton
             onClick={handleClose}
-            sx={{ position: "absolute", top: 8, right: 8, zIndex: 10 }}
+            sx={{
+              position: "absolute",
+              top: 8,
+              right: 8,
+              zIndex: 10,
+              background: "#fff"
+            }}
           >
             <CloseIcon />
           </IconButton>
@@ -150,7 +227,7 @@ export default function ProteinRecipes() {
             <Box sx={{ position: "relative", paddingTop: "56.25%" }}>
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${activeVideo.videoId}`}
-                title={activeVideo.title}
+                title="Protein recipe video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 style={{
