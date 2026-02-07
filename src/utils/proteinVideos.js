@@ -1,9 +1,10 @@
 const Chicken = "Chicken";
 const Egg = "Eggs";
 const Oats = "Oats";
-const Veg = "Eggs";
+const Veg = "Veg";
 const Snacks = "Snacks";
 const Breakfast = "Breakfasts";
+const Paneer = "Paneer"
 
 export function formatYoutubeUrls(videoItems = []) {
   return videoItems
@@ -66,8 +67,13 @@ export const youtubeChannels = [
 
 //EGGS
 const eggrecipies = [
+
   {
     url: "https://www.youtube.com/watch?v=ZR8njWAwAlo",
+    category: Egg
+  },
+  {
+    url: "https://www.youtube.com/watch?v=VL09tMVp8yA",
     category: Egg
   },
 
@@ -180,22 +186,158 @@ const oatsRecipies = [
     url: "https://www.youtube.com/watch?v=6FsOLe61Vhw",
     category: Oats
   },
-    {
+  {
     url: "http://youtube.com/watch?v=WZWiHhl94LA",
     category: Oats
   },
 ]
 
+const snackRecipies = [
+  {
+    url: "https://www.youtube.com/watch?v=110G3GvaZns",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=RgBZS2hrmak",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=YQDA29r9QDA",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=zUd2TowFIVM",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=ojOyfO45DJY",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=RT6hKbSk4fI",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=6oQFWCDI4EM",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=BCuD36zzimU",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=RKs7wNSqpoc",
+    category: Snacks
+  },
+  {
+    url: "https://www.youtube.com/watch?v=RUDi7gf-zF4",
+    category: Snacks
+  }
+
+]
+
+//breakfast
+const breakfastRecipies = [
+  {
+    url: "https://www.youtube.com/watch?v=zeqeWQb9FCY",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=jQ5ZUvGaSsk",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=8XcY0DsrHbs",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=rvULBQuK5Xs",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=ee0SfGSJOTc",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=mK5Zv1Gi67A",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=weDBAlgQcTc",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=kFHJ0T-LKY0",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=moGg7ANNzYw",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=Zvx6FVFLHaA",
+    category: Breakfast
+  },
+
+]
+
+//paneer
+const paneerRecipies = [
+  {
+    url: "https://www.youtube.com/watch?v=uQNQSqqB6E0",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=Zvx6FVFLHaA",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=br-IaFzt2SE",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=6pXJCPRLn3A",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=1rj1CKHskdY",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=7IEnGV3OGP4",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=70dD-_cH0Oo",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=a_-iquQHX3c",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=eD4D-bQjaoY",
+    category: Paneer
+  },
+  {
+    url: "https://www.youtube.com/watch?v=evDHjynYmHo",
+    category: Paneer
+  },
+  {
+    url:"https://www.youtube.com/watch?v=ZL5dyFPn88Q",
+    category:Paneer
+  }
+]
 
 export const proteinVideoUrls = [
   "https://www.youtube.com/watch?v=mJ1iIiVV0mM",
   "https://www.youtube.com/watch?v=_UG_FZUDO24",
-  "https://www.youtube.com/watch?v=mK5Zv1Gi67A",
   "https://www.youtube.com/watch?v=oCkOQUsEGEo",
   "https://www.youtube.com/watch?v=EbfAukVWgj0",
   "https://www.youtube.com/watch?v=RUDi7gf-zF4",
   "https://www.youtube.com/watch?v=e2JiidC3qO4",
   "https://www.youtube.com/watch?v=YHdxBff_M6k",
+  "https://www.youtube.com/watch?v=yN-YDyc8fgc",
   "https://www.youtube.com/watch?v=1Q6ij1qSrrw",
   "https://www.youtube.com/watch?v=oCkOQUsEGEo",
   "https://www.youtube.com/watch?v=AF8ykw6IKQQ",
@@ -212,6 +354,9 @@ export const proteinVideoUrls = [
 
   ...eggrecipies,
   ...chickenRecipies,
-  ...oatsRecipies
+  ...oatsRecipies,
+  ...snackRecipies,
+  ...breakfastRecipies,
+  ...paneerRecipies
 ];
 
