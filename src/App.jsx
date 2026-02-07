@@ -25,6 +25,7 @@ import { calculateBMI, getBMICategory } from "./utils/bmi";
 import { calculateCalories, proteinRequirement, calculateProtein } from "./utils/calories";
 import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyFat";
 import ProteinChannels from "./components/protein/ProteinChannels";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 export default function App() {
@@ -74,6 +75,7 @@ export default function App() {
 
 
   return (
+    <>
     <Box
       style={{}}
       sx={{
@@ -172,5 +174,8 @@ export default function App() {
         </Stack>
       </Container>
     </Box>
+    <ScrollToTop />
+    </>
+
   );
 }

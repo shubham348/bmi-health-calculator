@@ -77,7 +77,7 @@ export default function ProteinSources() {
                 >
                   <TableHead>
                     <TableRow>
-                      <TableCell><b>Food</b></TableCell>
+                      <TableCell ><b>Food</b></TableCell>
                       <TableCell><b>Protein</b></TableCell>
                       <TableCell><b>Calories</b></TableCell>
                       <TableCell><b>Quantity</b></TableCell>
