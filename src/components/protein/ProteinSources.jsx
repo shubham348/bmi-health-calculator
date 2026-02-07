@@ -24,7 +24,7 @@ export default function ProteinSources() {
   return (
     <Card sx={{ borderRadius: 5 }}> 
     <Accordion
-      defaultExpanded
+      defaultExpanded={false}
       sx={{
         borderRadius: 5,
         boxShadow: "0 10px 30px rgba(0,0,0,0.05)",

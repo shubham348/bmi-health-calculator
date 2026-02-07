@@ -111,12 +111,6 @@ export default function ProteinRecipes() {
                           >
                             {video.channel}
                           </Typography>
-
-                          <Chip
-                            label={video.language}
-                            size="small"
-                            sx={{ borderRadius: 2 }}
-                          />
                         </Box>
                       </Card>
                     </Grid>

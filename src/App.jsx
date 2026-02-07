@@ -160,7 +160,7 @@ export default function App() {
           {activeTab === 3 && (
             <Stack spacing={4}>
               <ProteinSources />
-              <ProteinRecipes/>
+              {/* <ProteinRecipes/> */}
             </Stack>
           )}
 
