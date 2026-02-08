@@ -19,6 +19,7 @@ import ProteinResult from "./components/calorie/ProteinResult";
 //Protien
 import ProteinSources from "./components/protein/ProteinSources";
 import ProteinRecipes from "./components/protein/ProteinRecipes";
+import CalorieDenseFood from "./components/protein/CalorieDenseFood";
 
 // Utils
 import { calculateBMI, getBMICategory } from "./utils/bmi";
@@ -166,6 +167,7 @@ export default function App() {
           {activeTab === 3 && (
             <Stack spacing={4}>
               <ProteinSources />
+              <CalorieDenseFood/>
               <ProteinRecipes />
               <ProteinChannels />
             </Stack>
