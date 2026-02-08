@@ -1,10 +1,11 @@
 const Chicken = "Chicken";
 const Egg = "Eggs";
 const Oats = "Oats";
-const General = "General";
+const Soya = "Soya Chunks (Nutrela)";
 const Snacks = "Snacks";
 const Breakfast = "Breakfasts";
 const Paneer = "Paneer"
+const Rolls = "Rolls , Wraps & Chilla"
 
 export function formatYoutubeUrls(videoItems = []) {
   return videoItems
@@ -282,7 +283,14 @@ const breakfastRecipies = [
     url: "https://www.youtube.com/watch?v=Zvx6FVFLHaA",
     category: Breakfast
   },
-
+  {
+    url: "https://www.youtube.com/watch?v=9-lR8Kv7aOk",
+    category: Breakfast
+  },
+  {
+    url: "https://www.youtube.com/watch?v=FhH_MY_qA2A",
+    category: Breakfast
+  },
 ]
 
 //paneer
@@ -333,6 +341,109 @@ const paneerRecipies = [
   }
 ]
 
+//Soya chunks
+const soyaRecipies = [
+  {
+    url: "https://www.youtube.com/watch?v=MhzeBIKcSrc",
+    category: Soya
+  },
+  {
+    url: "https://www.youtube.com/watch?v=EViS0ipEYK0",
+    category: Soya
+  },
+  {
+    url: "https://www.youtube.com/watch?v=ZbXkd3XajDU",
+    category: Soya
+  },
+  {
+    url: "https://www.youtube.com/watch?v=l0k4MdW2FzM",
+    category: Soya
+  },
+  {
+    url: "https://www.youtube.com/watch?v=flaN81QisV8",
+    category: Soya
+  },
+  {
+    url: "https://www.youtube.com/watch?v=5jaE8NsCIB0",
+    category: Soya
+  },
+  {
+    url: "https://www.youtube.com/watch?v=kUISSX_-QAI",
+    category: Soya
+  },
+]
+
+const rollsRecipe = [
+  {
+    url: "https://www.youtube.com/watch?v=eUJz7NcyjiU",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=fb_ei5_L9gU",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=bM03aFwUzTA",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=45fRzOhPdMI",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=aKbn4AERLpg",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=7n9xx0hqfnk",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=Dk7O0ij0ch0",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=iu9lctpnD8g",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=D6z1J-hcWio",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=ddALQxkOd4A",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=MP3DlW_z9wo",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=6JXC5N9hF6k",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=95Z7nP0yhdU",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=rdgYebOQQGM",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=9-lR8Kv7aOk",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=h9cJLV-EMbA",
+    category: Rolls
+  },
+  {
+    url: "https://www.youtube.com/watch?v=pVlutejQWzU",
+    category: Rolls
+  },
+]
+
 
 export const proteinVideoUrls = [
   "https://www.youtube.com/watch?v=mJ1iIiVV0mM",
@@ -362,7 +473,8 @@ export const proteinVideoUrls = [
   ...oatsRecipies,
   ...eggrecipies,
   ...chickenRecipies,
+  ...soyaRecipies,
+  ...rollsRecipe,
   ...snackRecipies,
-
 ];
 
