@@ -61,7 +61,7 @@ export default function CalorieDenseFood() {
                         background: "#fff",
                         fontWeight: 500,
                         zIndex: 3
-                      }}>Food</TableCell>
+                      }}><b>Food</b></TableCell>
                       <TableCell>Water %</TableCell>
                       <TableCell>Carbs (g)</TableCell>
                       <TableCell>Protein (g)</TableCell>
@@ -82,7 +82,9 @@ export default function CalorieDenseFood() {
                             fontWeight: 500
                           }}
                         >
-                          {item.name}
+                          <b>
+                            {item.name}
+                          </b>
                         </TableCell>
                         <TableCell>{item.water}</TableCell>
                         <TableCell>{item.carbs}</TableCell>

@@ -12,7 +12,8 @@ import {
   Stack,
   Accordion,
   AccordionSummary,
-  AccordionDetails
+  AccordionDetails,
+  Box
 } from "@mui/material";
 import { TableContainer, Paper } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -54,48 +55,48 @@ export default function ProteinSources() {
                   <ToggleButton value="nonVeg">Non-Vegetarian</ToggleButton>
                 </ToggleButtonGroup>
               </Stack>
-              <TableContainer
-                component={Paper}
-                elevation={0}
+              <Box
                 sx={{
-                  width: "100%",
-                  overflowX: "auto",
-                  WebkitOverflowScrolling: "touch",
-                  "&::-webkit-scrollbar": {
-                    height: 6
-                  },
-                  "&::-webkit-scrollbar-thumb": {
-                    backgroundColor: "#cbd5e1",
-                    borderRadius: 3
-                  }
+                  overflow: "auto",
+                  maxHeight: { xs: 380, md: 500 },
+                  borderRadius: 3,
+                  border: "1px solid #eee"
                 }}
               >
-                <Table
-                  sx={{
-                    minWidth: 650 // 👈 IMPORTANT: forces horizontal scroll
-                  }}
-                >
+                <Table stickyHeader size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell ><b>Food</b></TableCell>
-                      <TableCell><b>Protein</b></TableCell>
-                      <TableCell><b>Calories</b></TableCell>
-                      <TableCell><b>Quantity</b></TableCell>
+                      <TableCell sx={{
+                        position: "sticky",
+                        left: 0,
+                        background: "#fff",
+                        fontWeight: 500,
+                        zIndex: 3
+                      }}><b>Food</b></TableCell>
+                      <TableCell>Protein (g)</TableCell>
+                      <TableCell>Calories (kacl)</TableCell>
+                      <TableCell>Quantity</TableCell>
                     </TableRow>
                   </TableHead>
 
                   <TableBody>
                     {proteinSources[diet].map(item => (
                       <TableRow key={item.name}>
-                        <TableCell>{item.name}</TableCell>
-                        <TableCell>{item.protein} g</TableCell>
-                        <TableCell>{item.calories} kcal</TableCell>
+                        <TableCell sx={{
+                          position: "sticky",
+                          left: 0,
+                          background: "#fff",
+                          fontWeight: 500
+                        }}><b>{item.name}</b></TableCell>
+                        <TableCell>{item.protein}</TableCell>
+                        <TableCell>{item.calories}</TableCell>
                         <TableCell>{item.unit}</TableCell>
                       </TableRow>
                     ))}
+
                   </TableBody>
                 </Table>
-              </TableContainer>
+              </Box>
             </CardContent>
           </Card>
         </AccordionDetails>

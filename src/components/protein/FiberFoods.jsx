@@ -61,8 +61,8 @@ export default function FiberFoods() {
                           left: 0,
                           background: "#fff",
                           fontWeight: 500,
-                          zIndex:3
-                        }}>Food</TableCell>
+                          zIndex: 3
+                        }}><b>Food</b></TableCell>
                         <TableCell>Qty (g)</TableCell>
                         <TableCell>Protein (g)</TableCell>
                         <TableCell>Carbs (g)</TableCell>
@@ -82,7 +82,9 @@ export default function FiberFoods() {
                             background: "#fff",
                             fontWeight: 500
                           }}>
-                            {item.food}
+                            <b>
+                              {item.food}
+                            </b>
                           </TableCell>
                           <TableCell>{item.qty}</TableCell>
                           <TableCell>{item.protein}</TableCell>
