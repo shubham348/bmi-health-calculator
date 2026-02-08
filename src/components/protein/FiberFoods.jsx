@@ -69,7 +69,6 @@ export default function FiberFoods() {
                         <TableCell>Fat (g)</TableCell>
                         <TableCell>Fiber (g)</TableCell>
                         <TableCell>Calories</TableCell>
-                        <TableCell>Cal / Fiber</TableCell>
                       </TableRow>
                     </TableHead>
 
@@ -92,7 +91,6 @@ export default function FiberFoods() {
                           <TableCell>{item.fat}</TableCell>
                           <TableCell>{item.fiber}</TableCell>
                           <TableCell>{item.calories}</TableCell>
-                          <TableCell>{item.calPerFiber}</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
