@@ -16,7 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { caloriefoods } from "../../utils/proteinSources";
 
 export default function CalorieDenseFood() {
-  
+
   return (
     <Card sx={{ borderRadius: 5 }}>
       <Accordion
@@ -30,7 +30,7 @@ export default function CalorieDenseFood() {
         {/* HEADER */}
         <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
           <Typography variant="h5" fontWeight={600}>
-           Calorie Density Food
+            Calorie Density Food
           </Typography>
         </AccordionSummary>
 
@@ -46,7 +46,7 @@ export default function CalorieDenseFood() {
               {/* SCROLL CONTAINER */}
               <Box
                 sx={{
-                  overflow:"auto",
+                  overflow: "auto",
                   maxHeight: { xs: 380, md: 500 },
                   borderRadius: 3,
                   border: "1px solid #eee"
@@ -55,7 +55,13 @@ export default function CalorieDenseFood() {
                 <Table stickyHeader size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell><b>Food</b></TableCell>
+                      <TableCell sx={{
+                        position: "sticky",
+                        left: 0,
+                        background: "#fff",
+                        fontWeight: 500,
+                        zIndex: 3
+                      }}>Food</TableCell>
                       <TableCell>Water %</TableCell>
                       <TableCell>Carbs (g)</TableCell>
                       <TableCell>Protein (g)</TableCell>

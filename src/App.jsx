@@ -27,6 +27,7 @@ import { calculateCalories, proteinRequirement, calculateProtein } from "./utils
 import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyFat";
 import ProteinChannels from "./components/protein/ProteinChannels";
 import ScrollToTop from "./components/ScrollToTop";
+import FiberFoods from "./components/protein/FiberFoods";
 
 
 export default function App() {
@@ -168,6 +169,7 @@ export default function App() {
             <Stack spacing={4}>
               <ProteinSources />
               <CalorieDenseFood/>
+              <FiberFoods/>
               <ProteinRecipes />
               <ProteinChannels />
             </Stack>
