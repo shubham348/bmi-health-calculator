@@ -62,12 +62,12 @@ export default function CalorieDenseFood() {
                         fontWeight: 500,
                         zIndex: 3
                       }}><b>Food</b></TableCell>
+                      <TableCell>Fiber (g)</TableCell>
                       <TableCell>Water %</TableCell>
                       <TableCell>Carbs (g)</TableCell>
                       <TableCell>Protein (g)</TableCell>
                       <TableCell>Fat (g)</TableCell>
-                      <TableCell>Fiber (g)</TableCell>
-                      <TableCell>Calories / 100g</TableCell>
+                      <TableCell>Calories</TableCell>
                     </TableRow>
                   </TableHead>
 
@@ -87,10 +87,10 @@ export default function CalorieDenseFood() {
                           </b>
                         </TableCell>
                         <TableCell>{item.water}</TableCell>
+                        <TableCell>{item.fiber}</TableCell>
                         <TableCell>{item.carbs}</TableCell>
                         <TableCell>{item.protein}</TableCell>
                         <TableCell>{item.fat}</TableCell>
-                        <TableCell>{item.fiber}</TableCell>
                         <TableCell>{item.calories100g}</TableCell>
                       </TableRow>
                     ))}

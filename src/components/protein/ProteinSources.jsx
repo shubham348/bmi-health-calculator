@@ -74,8 +74,8 @@ export default function ProteinSources() {
                         zIndex: 3
                       }}><b>Food</b></TableCell>
                       <TableCell>Protein (g)</TableCell>
-                      <TableCell>Calories (kacl)</TableCell>
                       <TableCell>Quantity</TableCell>
+                      <TableCell>Calories (kacl)</TableCell>
                     </TableRow>
                   </TableHead>
 
@@ -89,8 +89,8 @@ export default function ProteinSources() {
                           fontWeight: 500
                         }}><b>{item.name}</b></TableCell>
                         <TableCell>{item.protein}</TableCell>
-                        <TableCell>{item.calories}</TableCell>
                         <TableCell>{item.unit}</TableCell>
+                        <TableCell>{item.calories}</TableCell>
                       </TableRow>
                     ))}
 
