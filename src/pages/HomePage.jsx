@@ -41,6 +41,12 @@ const pages = [
     path: "/bmr",
     icon: <FitnessCenterIcon fontSize="large" />
   },
+  {
+    title: "Lean Body Mass",
+    description: "Calculate lean mass and fat mass using body fat percentage.",
+    path: "/lean-body-mass",
+    icon: <FitnessCenterIcon fontSize="large" />
+  },
 
 
 ];

@@ -7,6 +7,7 @@ import CaloriePage from "./pages/CaloriePage";
 import ProteinPage from "./pages/ProteinPage";
 import BmrPage from "./pages/BmrPage";
 import ScrollToTop from "./components/ScrollToTop";
+import LeanBodyMassPage from "./pages/LeanBodyMassPage";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -20,6 +21,7 @@ function AnimatedRoutes() {
         <Route path="/calorie" element={<PageWrapper><CaloriePage /></PageWrapper>} />
         <Route path="/protein" element={<PageWrapper><ProteinPage /></PageWrapper>} />
         <Route path="/bmr" element={<PageWrapper><BmrPage /></PageWrapper>} />
+        <Route path="/lean-body-mass" element={<PageWrapper><LeanBodyMassPage /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
   );
