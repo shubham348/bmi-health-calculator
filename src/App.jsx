@@ -1,185 +1,46 @@
-import { useState } from "react";
-import { Container, Stack, Box, Tabs, Tab } from "@mui/material";
-import Header from "./components/Header";
-// BMI
-import BmiForm from "./components/bmi/BmiForm";
-import BmiResult from "./components/bmi/BmiResult";
-import BmiEducation from "./components/bmi/BmiEducation";
-import Resources from "./components/bmi/Resources";
-// Body Fat
-import BodyFatForm from "./components/bodyFat/BodyFatForm";
-import BodyFatEducation from "./components/bodyFat/BodyFatEducation";
-import BodyFatResult from "./components/bodyFat/BodyFatResult";
-// CALORIES
-import CalorieForm from "./components/calorie/CalorieForm";
-import CalorieResult from "./components/calorie/CalorieResult";
-import CalorieEducation from "./components/calorie/CalorieEducation";
-import ProteinResult from "./components/calorie/ProteinResult";
-
-//Protien
-import ProteinSources from "./components/protein/ProteinSources";
-import ProteinRecipes from "./components/protein/ProteinRecipes";
-import CalorieDenseFood from "./components/protein/CalorieDenseFood";
-
-// Utils
-import { calculateBMI, getBMICategory } from "./utils/bmi";
-import { calculateCalories, proteinRequirement, calculateProtein } from "./utils/calories";
-import { calculateBodyFat, getBodyFatCategory } from "./utils/bodyFat";
-import ProteinChannels from "./components/protein/ProteinChannels";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import HomePage from "./pages/HomePage";
+import BodyFatPage from "./pages/BodyFatPage";
+import BmiPage from "./pages/BmiPage";
+import CaloriePage from "./pages/CaloriePage";
+import ProteinPage from "./pages/ProteinPage";
 import ScrollToTop from "./components/ScrollToTop";
-import FiberFoods from "./components/protein/FiberFoods";
 
-
-export default function App() {
-  const [result, setResult] = useState(null);
-  const [activeTab, setActiveTab] = useState(0);
-  const [bodyFatResult, setBodyFatResult] = useState(null);
-  const [calorieResult, setCalorieResult] = useState(null);
-
-  const handleBodyFatCalculate = data => {
-    const result = calculateBodyFat(data);
-    const category = getBodyFatCategory(result.bodyFatPercent, data.gender);
-
-    setBodyFatResult({
-      ...result,
-      category
-    });
-  };
-
-  const handleCalculate = data => {
-    const bmi = calculateBMI(data.weight, data.height);
-    const category = getBMICategory(bmi);
-    const calories = calculateCalories(data);
-    const protein = proteinRequirement(data.weight);
-
-    setResult({
-      bmi,
-      category,
-      calories,
-      protein,
-      height: data.height,
-      weight: data.weight
-    });
-  };
-
-  const handleCalorieCalculate = data => {
-    const calories = calculateCalories(data);
-    const protein = calculateProtein(
-      data.weight,
-      data.goal
-    );
-
-    setCalorieResult({
-      ...calories,
-      protein
-    });
-  };
-
+function AnimatedRoutes() {
+  const location = useLocation();
 
   return (
-    <>
-    <Box
-      style={{}}
-      sx={{
-        minHeight: "100vh",
-        py: 6,
-        background: "linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12)"
-      }}
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
+        <Route path="/bmi" element={<PageWrapper><BmiPage /></PageWrapper>} />
+        <Route path="/body-fat" element={<PageWrapper><BodyFatPage /></PageWrapper>} />
+        <Route path="/calorie" element={<PageWrapper><CaloriePage /></PageWrapper>} />
+        <Route path="/protein" element={<PageWrapper><ProteinPage /></PageWrapper>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+function PageWrapper({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.3 }}
     >
-      <Container maxWidth="md">
-        <Header />
-        {/* ===== TABS ===== */}
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-          <Tabs
-            value={activeTab}
-            onChange={(_, value) => {
-              setActiveTab(value);
-              setResult(null); // reset BMI result when switching tabs
-            }}
-            variant="scrollable"
-            scrollButtons="auto"
-            allowScrollButtonsMobile
-            textColor="primary"
-            indicatorColor="primary"
-            sx={{
-              backgroundColor: "#fff",
-              borderRadius: 3,
-              px: 2,
-              boxShadow: "0 6px 20px rgba(0,0,0,0.06)"
-            }}
-          >
-            <Tab label="BMI Calculator" />
-            <Tab label="Body Fat Calculator" />
-            <Tab label="Calorie Calculator" />
-            <Tab label="Protien Sources and Recipies" />
-          </Tabs>
-        </Box>
+      {children}
+    </motion.div>
+  );
+}
 
-        {/* ===== TAB CONTENT ===== */}
-        <Stack spacing={4} mt={4}>
-          {/* === BMI TAB === */}
-          {activeTab === 0 && (
-            <>
-              <BmiForm onCalculate={handleCalculate} />
-
-              {result && (
-                <BmiResult
-                  bmi={result.bmi}
-                  category={result.category}
-                  height={result.height}
-                />
-              )}
-
-              <BmiEducation />
-              <Resources />
-            </>
-          )}
-
-          {/* === BODY FAT TAB === */}
-          {activeTab === 1 && <>
-            <BodyFatForm onCalculate={handleBodyFatCalculate} />
-            {bodyFatResult && (
-              <BodyFatResult
-                bodyFatPercent={bodyFatResult.bodyFatPercent}
-                category={bodyFatResult.category}
-                fatMass={bodyFatResult.fatMass}
-                leanMass={bodyFatResult.leanMass}
-              />
-            )}
-            <BodyFatEducation />
-          </>}
-
-          {activeTab === 2 && (
-            <Stack spacing={4}>
-              <CalorieForm onCalculate={handleCalorieCalculate} />
-              {calorieResult && (
-                <>
-                  <CalorieResult
-                    maintenance={calorieResult.maintenance}
-                    loss={calorieResult.weightLoss}
-                    gain={calorieResult.weightGain}
-                  />
-                  <ProteinResult protein={calorieResult.protein} />
-                </>
-              )}
-              <CalorieEducation />
-            </Stack>
-          )}
-          {activeTab === 3 && (
-            <Stack spacing={4}>
-              <ProteinSources />
-              <CalorieDenseFood/>
-              <FiberFoods/>
-              <ProteinRecipes />
-              <ProteinChannels />
-            </Stack>
-          )}
-
-        </Stack>
-      </Container>
-    </Box>
-    <ScrollToTop />
+export default function App() {
+  return (
+    <>
+      <AnimatedRoutes />
+      <ScrollToTop />
     </>
-
   );
 }
