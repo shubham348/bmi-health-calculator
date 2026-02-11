@@ -8,29 +8,34 @@ import PageLayout from "../components/PageLayout";
 
 const pages = [
   {
+    title: "Protein Sources & Recipes",
+    description:
+      "Daily protein foods, fiber tables and recipes.",
+    path: "/protein",
+    icon: <RestaurantMenuIcon fontSize="large" />
+  },
+  {
     title: "BMI Calculator",
-    description: "Calculate BMI, health category, calorie needs and protein intake.",
+    description:
+      "Calculate BMI, health category, calorie needs and protein intake.",
     path: "/bmi",
     icon: <FitnessCenterIcon fontSize="large" />
   },
   {
     title: "Body Fat Calculator",
-    description: "Estimate body fat %, fat mass and lean mass insights.",
+    description:
+      "Estimate body fat %, fat mass and lean mass insights.",
     path: "/body-fat",
     icon: <MonitorWeightIcon fontSize="large" />
   },
   {
     title: "Calorie Calculator",
-    description: "Find maintenance calories and weight targets.",
+    description:
+      "Find maintenance calories and weight targets.",
     path: "/calorie",
     icon: <LocalFireDepartmentIcon fontSize="large" />
   },
-  {
-    title: "Protein Sources & Recipes",
-    description: "Daily protein foods, fiber tables and recipes.",
-    path: "/protein",
-    icon: <RestaurantMenuIcon fontSize="large" />
-  }
+
 ];
 
 export default function HomePage() {
@@ -40,11 +45,14 @@ export default function HomePage() {
     <PageLayout>
       <Box
         sx={{
-          display: "flex",
-          flexWrap: "wrap",
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "1fr",
+            md: "1fr 1fr"
+          },
           gap: 4,
-          mt: 6,
-          justifyContent: "space-between"
+          mt: 6
         }}
       >
         {pages.map((page, index) => (
@@ -52,8 +60,7 @@ export default function HomePage() {
             key={index}
             onClick={() => navigate(page.path)}
             sx={{
-              flex: { xs: "1 1 100%", md: "1 1 48%" },
-              backgroundColor: "#fff",
+              backgroundColor: "#ffffff",
               borderRadius: 3,
               p: 4,
               cursor: "pointer",
@@ -61,7 +68,7 @@ export default function HomePage() {
               alignItems: "center",
               gap: 3,
               boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
-              transition: "0.3s",
+              transition: "all 0.3s ease",
               "&:hover": {
                 transform: "translateY(-6px)",
                 boxShadow: "0 12px 30px rgba(0,0,0,0.12)"
@@ -76,6 +83,7 @@ export default function HomePage() {
               <Typography variant="h6" fontWeight="bold">
                 {page.title}
               </Typography>
+
               <Typography variant="body2" color="text.secondary">
                 {page.description}
               </Typography>
