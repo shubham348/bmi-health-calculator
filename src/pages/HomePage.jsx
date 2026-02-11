@@ -15,6 +15,12 @@ const pages = [
     icon: <RestaurantMenuIcon fontSize="large" />
   },
   {
+    title: "Macro Calculator",
+    description: "Calculate protein, carbs, and fats based on your calorie target.",
+    path: "/macro-calculator",
+    icon: <FitnessCenterIcon fontSize="large" />
+  },
+  {
     title: "BMI Calculator",
     description:
       "Calculate BMI, health category, calorie needs and protein intake.",
