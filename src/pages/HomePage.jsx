@@ -35,6 +35,13 @@ const pages = [
     path: "/calorie",
     icon: <LocalFireDepartmentIcon fontSize="large" />
   },
+  {
+    title: "BMR Calculator",
+    description: "Calculate your Basal Metabolic Rate using Mifflin-St Jeor formula.",
+    path: "/bmr",
+    icon: <FitnessCenterIcon fontSize="large" />
+  },
+
 
 ];
 
