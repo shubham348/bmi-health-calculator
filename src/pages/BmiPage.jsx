@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import PageLayout from "../components/PageLayout";
 import BmiForm from "../components/bmi/BmiForm";
 import BmiResult from "../components/bmi/BmiResult";
@@ -29,16 +29,32 @@ export default function BmiPage() {
 
   return (
     <PageLayout title="BMI Calculator" showBreadcrumb>
-      <Stack spacing={4} mt={4}>
-        <BmiForm onCalculate={handleCalculate} />
+      <Stack spacing={6} mt={4}>
 
-        {result && (
-          <BmiResult
-            bmi={result.bmi}
-            category={result.category}
-            height={result.height}
-          />
-        )}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              md: result ? "1fr 1fr" : "1fr"
+            },
+            gap: 4,
+            alignItems: "start"
+          }}
+        >          <Box>
+            <BmiForm onCalculate={handleCalculate} />
+          </Box>
+
+          {result && (
+            <Box>
+              <BmiResult
+                bmi={result.bmi}
+                category={result.category}
+                height={result.height}
+              />
+            </Box>
+          )}
+        </Box>
 
         <BmiEducation />
         <Resources />
