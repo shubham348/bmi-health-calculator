@@ -204,7 +204,7 @@ export default function BodyFatEducation() {
         </Accordion>
       </Card>
       {/* ================= SOURCES ================= */}
-      <Card sx={{ borderRadius: 5 }}>
+      <Card sx={{ borderRadius: 5 ,marginTop:"1rem"}}>
         <CardContent sx={{ p: 4 }}>
           <Typography variant="h6" fontWeight={600} mb={2}>
             Learn More from Trusted Sources

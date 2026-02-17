@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stack, } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import BodyFatForm from "../components/bodyFat/BodyFatForm";
 import BodyFatResult from "../components/bodyFat/BodyFatResult";
 import BodyFatEducation from "../components/bodyFat/BodyFatEducation";
@@ -17,17 +17,45 @@ export default function BodyFatPage() {
 
   return (
     <PageLayout title="Body Fat" showBreadcrumb>
-      <Stack spacing={4} mt={4}>
-        <BodyFatForm onCalculate={handleCalculate} />
-        {result && (
-          <BodyFatResult
-            bodyFatPercent={result.bodyFatPercent}
-            category={result.category}
-            fatMass={result.fatMass}
-            leanMass={result.leanMass}
-          />
-        )}
-        <BodyFatEducation />
+      <Stack spacing={6} mt={4}>
+        
+        {/* ===== FORM + RESULT WRAPPER ===== */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              md: result ? "1fr 1fr" : "1fr"
+            },
+            gap: 4,
+            alignItems: "start",
+            maxWidth: 1100,
+            mx: "auto"
+          }}
+        >
+          {/* FORM */}
+          <Box>
+            <BodyFatForm onCalculate={handleCalculate} />
+          </Box>
+
+          {/* RESULT */}
+          {result && (
+            <Box>
+              <BodyFatResult
+                bodyFatPercent={result.bodyFatPercent}
+                category={result.category}
+                fatMass={result.fatMass}
+                leanMass={result.leanMass}
+              />
+            </Box>
+          )}
+        </Box>
+
+        {/* ===== EDUCATION FULL WIDTH ===== */}
+        <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%" ,}}>
+          <BodyFatEducation />
+        </Box>
+
       </Stack>
     </PageLayout>
   );

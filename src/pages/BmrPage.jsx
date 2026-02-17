@@ -33,18 +33,21 @@ export default function BmrPage() {
     <PageLayout title="BMR Calculator" showBreadcrumb>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%"
+          mt: 4,
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: bmr ? "1fr 1fr" : "1fr"
+          },
+          gap: 4,
+          alignItems: "start",
+          maxWidth: 1100,
+          mx: "auto"
         }}
       >
+        {/* ===== FORM CARD ===== */}
         <Card
           sx={{
-            width: {
-              xs: "100%",
-              sm: "90%",
-              md: "80%"
-            },
             borderRadius: 5,
             boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
           }}
@@ -115,23 +118,11 @@ export default function BmrPage() {
             </form>
           </CardContent>
         </Card>
-      </Box>
 
-      {bmr && (
-        <Box
-          sx={{
-            mt: 4,
-            display: "flex",
-            justifyContent: "center"
-          }}
-        >
+        {/* ===== RESULT CARD ===== */}
+        {bmr && (
           <Card
             sx={{
-              width: {
-                xs: "100%",
-                sm: "90%",
-                md: "80%"
-              },
               borderRadius: 5,
               background: "linear-gradient(135deg, #ecfdf5, #ffffff)",
               border: "1px solid #e5e7eb"
@@ -151,8 +142,8 @@ export default function BmrPage() {
               </Typography>
             </CardContent>
           </Card>
-        </Box>
-      )}
+        )}
+      </Box>
     </PageLayout>
   );
 }
