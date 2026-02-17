@@ -9,7 +9,11 @@ import {
   AccordionDetails,
   Dialog,
   DialogContent,
-  IconButton
+  IconButton,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
@@ -55,13 +59,13 @@ export default function ProteinRecipes() {
      HANDLERS
   =============================== */
   const handleOpen = video => {
-    // 🔥 Instagram opens directly
+    // Instagram → open externally
     if (video.type === "instagram") {
       window.open(video.url, "_blank", "noopener,noreferrer");
       return;
     }
 
-    // YouTube opens in modal
+    // YouTube → open modal
     setActiveVideo(video);
     setOpen(true);
   };
@@ -102,30 +106,36 @@ export default function ProteinRecipes() {
                 </Typography>
 
                 {/* ===== CATEGORY DROPDOWN ===== */}
-                <Box sx={{ mb: 4, maxWidth: 280 }}>
-                  <Typography variant="body2" fontWeight={500} mb={1}>
-                    Filter by ingredient
-                  </Typography>
-
-                  <select
-                    value={selectedCategory}
-                    onChange={e => setSelectedCategory(e.target.value)}
-                    style={{
-                      width: "100%",
-                      padding: "10px 12px",
-                      borderRadius: 8,
-                      border: "1px solid #ddd",
-                      fontSize: 14
-                    }}
-                  >
-                    {categories.map(cat => (
-                      <option key={cat} value={cat}>
-                        {cat === "general"
-                          ? "General"
-                          : cat.charAt(0).toUpperCase() + cat.slice(1)}
-                      </option>
-                    ))}
-                  </select>
+                <Box sx={{ mb: 4, maxWidth: 300 }}>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Ingredient</InputLabel>
+                    <Select
+                      value={selectedCategory}
+                      label="Ingredient"
+                      onChange={(e) =>
+                        setSelectedCategory(e.target.value)
+                      }
+                      sx={{
+                        borderRadius: 3,
+                        backgroundColor: "#fafafa",
+                        "& .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#eee"
+                        },
+                        "&:hover .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "#ccc"
+                        }
+                      }}
+                    >
+                      {categories.map((cat) => (
+                        <MenuItem key={cat} value={cat}>
+                          {cat === "general"
+                            ? "General"
+                            : cat.charAt(0).toUpperCase() +
+                              cat.slice(1)}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
                 </Box>
 
                 {/* ===== VIDEO GRID ===== */}
@@ -161,7 +171,8 @@ export default function ProteinRecipes() {
                           borderRadius: 3,
                           overflow: "hidden",
                           cursor: "pointer",
-                          boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+                          boxShadow:
+                            "0 6px 18px rgba(0,0,0,0.08)",
                           transition: "transform 0.2s ease",
                           "&:hover": {
                             transform: "translateY(-4px)"
@@ -184,17 +195,21 @@ export default function ProteinRecipes() {
                             }}
                           />
 
-                          {video.type != "instagram" && <PlayCircleOutlineIcon
-                            sx={{
-                              position: "absolute",
-                              top: "50%",
-                              left: "50%",
-                              transform: "translate(-50%, -50%)",
-                              fontSize: 56,
-                              color: "#fff",
-                              opacity: 0.95
-                            }}
-                          />}
+                          {/* Only show play icon for YouTube */}
+                          {video.type !== "instagram" && (
+                            <PlayCircleOutlineIcon
+                              sx={{
+                                position: "absolute",
+                                top: "50%",
+                                left: "50%",
+                                transform:
+                                  "translate(-50%, -50%)",
+                                fontSize: 56,
+                                color: "#fff",
+                                opacity: 0.95
+                              }}
+                            />
+                          )}
                         </Box>
                       </Card>
                     </Box>
@@ -213,7 +228,12 @@ export default function ProteinRecipes() {
       </Card>
 
       {/* ===== YOUTUBE MODAL ===== */}
-      <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        maxWidth="md"
+        fullWidth
+      >
         <DialogContent sx={{ p: 0, position: "relative" }}>
           <IconButton
             onClick={handleClose}
@@ -229,7 +249,12 @@ export default function ProteinRecipes() {
           </IconButton>
 
           {activeVideo && (
-            <Box sx={{ position: "relative", paddingTop: "56.25%" }}>
+            <Box
+              sx={{
+                position: "relative",
+                paddingTop: "56.25%"
+              }}
+            >
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${activeVideo.videoId}`}
                 title="Protein recipe video"
