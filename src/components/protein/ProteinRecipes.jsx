@@ -55,6 +55,13 @@ export default function ProteinRecipes() {
      HANDLERS
   =============================== */
   const handleOpen = video => {
+    // 🔥 Instagram opens directly
+    if (video.type === "instagram") {
+      window.open(video.url, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    // YouTube opens in modal
     setActiveVideo(video);
     setOpen(true);
   };
@@ -96,11 +103,7 @@ export default function ProteinRecipes() {
 
                 {/* ===== CATEGORY DROPDOWN ===== */}
                 <Box sx={{ mb: 4, maxWidth: 280 }}>
-                  <Typography
-                    variant="body2"
-                    fontWeight={500}
-                    mb={1}
-                  >
+                  <Typography variant="body2" fontWeight={500} mb={1}>
                     Filter by ingredient
                   </Typography>
 
@@ -118,7 +121,7 @@ export default function ProteinRecipes() {
                     {categories.map(cat => (
                       <option key={cat} value={cat}>
                         {cat === "general"
-                          ? "Gereral"
+                          ? "General"
                           : cat.charAt(0).toUpperCase() + cat.slice(1)}
                       </option>
                     ))}
@@ -132,8 +135,8 @@ export default function ProteinRecipes() {
                     flexWrap: "wrap",
                     gap: 3,
                     justifyContent: "center",
-                    maxHeight:"600px",
-                    overflow:"auto"
+                    maxHeight: "600px",
+                    overflow: "auto"
                   }}
                 >
                   {filteredVideos.map((video, i) => (
@@ -165,11 +168,14 @@ export default function ProteinRecipes() {
                           }
                         }}
                       >
-                        {/* THUMBNAIL */}
                         <Box sx={{ position: "relative" }}>
                           <Box
                             component="img"
-                            src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
+                            src={
+                              video.type === "instagram"
+                                ? "https://sharethis.com/wp-content/uploads/2022/11/Blog_IGReels_110822-min.png"
+                                : `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`
+                            }
                             alt="High protein recipe"
                             sx={{
                               width: "100%",
@@ -178,7 +184,7 @@ export default function ProteinRecipes() {
                             }}
                           />
 
-                          <PlayCircleOutlineIcon
+                          {video.type != "instagram" && <PlayCircleOutlineIcon
                             sx={{
                               position: "absolute",
                               top: "50%",
@@ -188,7 +194,7 @@ export default function ProteinRecipes() {
                               color: "#fff",
                               opacity: 0.95
                             }}
-                          />
+                          />}
                         </Box>
                       </Card>
                     </Box>
@@ -206,7 +212,7 @@ export default function ProteinRecipes() {
         </Accordion>
       </Card>
 
-      {/* ===== VIDEO PLAYER DIALOG ===== */}
+      {/* ===== YOUTUBE MODAL ===== */}
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogContent sx={{ p: 0, position: "relative" }}>
           <IconButton

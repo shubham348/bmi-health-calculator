@@ -11,12 +11,30 @@ export function formatYoutubeUrls(videoItems = []) {
   return videoItems
     .map(item => {
       const url = typeof item === "string" ? item : item.url;
-      const category = typeof item === "string"
-        ? "general"
-        : item.category || "general";
+      const category =
+        typeof item === "string"
+          ? "general"
+          : item.category || "general";
+
+      const type =
+        typeof item === "object" && item.type
+          ? item.type
+          : "youtube"; // default to youtube
 
       try {
         const parsedUrl = new URL(url);
+
+        // ✅ INSTAGRAM (return as-is)
+        if (type === "instagram") {
+          return {
+            type: "instagram",
+            url: url.split("?")[0], // remove tracking params
+            category,
+            thumbnail: item.thumbnail || null
+          };
+        }
+
+        // ✅ YOUTUBE
         let videoId = "";
 
         if (parsedUrl.hostname.includes("youtube.com")) {
@@ -28,6 +46,7 @@ export function formatYoutubeUrls(videoItems = []) {
         if (!videoId) return null;
 
         return {
+          type: "youtube",
           videoId,
           url,
           category
@@ -38,6 +57,7 @@ export function formatYoutubeUrls(videoItems = []) {
     })
     .filter(Boolean);
 }
+
 
 export const youtubeChannels = [
   {
@@ -375,6 +395,11 @@ const soyaRecipies = [
 
 const rollsRecipe = [
   {
+    type: "instagram",
+    url: "https://www.instagram.com/reel/DUa7a0hjX0I",
+    category: Rolls
+  },
+  {
     url: "https://www.youtube.com/watch?v=eUJz7NcyjiU",
     category: Rolls
   },
@@ -442,10 +467,12 @@ const rollsRecipe = [
     url: "https://www.youtube.com/watch?v=pVlutejQWzU",
     category: Rolls
   },
+
 ]
 
 
 export const proteinVideoUrls = [
+
   "https://www.youtube.com/watch?v=mJ1iIiVV0mM",
   "https://www.youtube.com/watch?v=_UG_FZUDO24",
   "https://www.youtube.com/watch?v=oCkOQUsEGEo",
