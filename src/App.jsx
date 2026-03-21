@@ -89,7 +89,10 @@ export default function App() {
             },
 
             // ✅ for modern phones (VERY IMPORTANT)
-            paddingBottom: "calc(120px + env(safe-area-inset-bottom))",
+            marginBottom: {
+              xs:3,
+              md:2
+            },
           }}
         >
           <Box sx={{ maxWidth: 900, mx: "auto" }}>
