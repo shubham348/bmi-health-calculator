@@ -9,7 +9,8 @@ import BmrPage from "./pages/BmrPage";
 import ScrollToTop from "./components/ScrollToTop";
 import LeanBodyMassPage from "./pages/LeanBodyMassPage";
 import MacroCalculatorPage from "./pages/MacroCalculatorPage";
-
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { theme } from "./theme"; // adjust path
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -45,9 +46,12 @@ function PageWrapper({ children }) {
 
 export default function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline /> {/* 🔥 REQUIRED */}
+      
       <AnimatedRoutes />
       <ScrollToTop />
-    </>
+      
+    </ThemeProvider>
   );
 }
