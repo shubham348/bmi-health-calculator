@@ -70,8 +70,15 @@ export default function App() {
             flex: 1,
             overflowY: "auto",
             px: 2,
-            pb: 6,
-            marginTop: 3
+
+            marginTop: 3,
+            pb: {
+              xs: "120px",   // mobile (extra space for FAB + nav bar)
+              md: "80px"
+            },
+
+            // ✅ for modern phones (VERY IMPORTANT)
+            paddingBottom: "calc(120px + env(safe-area-inset-bottom))",
           }}
         >
           <Box sx={{ maxWidth: 900, mx: "auto" }}>
