@@ -125,7 +125,8 @@ export default function ProteinSources() {
                   /* 💻 DESKTOP */
                   <Box
                     sx={{
-                      overflowX: "auto",
+                      overflow: "auto",
+                      maxHeight: { xs: 380, md: 500 },
                       borderRadius: 3,
                       border: "1px solid #eee",
                     }}
