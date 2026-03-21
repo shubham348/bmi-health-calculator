@@ -12,6 +12,7 @@ import MacroCalculatorPage from "./pages/MacroCalculatorPage";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import Header from "./components/Header"
 import { theme } from "./theme"; // adjust path
+import { useRef } from "react";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -46,6 +47,7 @@ function PageWrapper({ children }) {
 }
 
 export default function App() {
+  const scrollRef = useRef(null);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -54,27 +56,28 @@ export default function App() {
           height: "100vh",
           display: "flex",
           flexDirection: "column",
-          justifyContent:"center",
-          alignItems:"center",
+          justifyContent: "center",
+          alignItems: "center",
           overflow: "hidden",
-          
+
         }}
       >
         <Box sx={{ height: "40px", flexShrink: 0 }} />
         <Header />
         <Box
+          ref={scrollRef}
           sx={{
             flex: 1,
             overflowY: "auto",
             px: 2,
             pb: 6,
-            marginTop:3
+            marginTop: 3
           }}
         >
           <Box sx={{ maxWidth: 900, mx: "auto" }}>
             <AnimatedRoutes />
-            <ScrollToTop />
           </Box>
+          <ScrollToTop scrollRef={scrollRef} />
         </Box>
       </Box>
     </ThemeProvider>
