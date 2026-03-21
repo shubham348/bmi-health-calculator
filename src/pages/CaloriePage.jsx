@@ -6,6 +6,7 @@ import ProteinResult from "../components/calorie/ProteinResult";
 import CalorieEducation from "../components/calorie/CalorieEducation";
 import { calculateCalories, calculateProtein } from "../utils/calories";
 import PageLayout from "../components/PageLayout";
+import { doodleCard } from "../utils/style";
 
 export default function CaloriePage() {
   const [result, setResult] = useState(null);

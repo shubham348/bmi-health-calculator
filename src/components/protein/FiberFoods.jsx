@@ -14,11 +14,12 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { fiberFoods } from "../../utils/proteinSources";
+import { doodleCard } from "../../utils/style";
 
 export default function FiberFoods() {
   return (
     <>
-      <Card sx={{ borderRadius: 5 }}>
+      <Card sx={{ borderRadius: 5, ...doodleCard }}>
         <Accordion
           defaultExpanded={false}
           sx={{

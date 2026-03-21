@@ -8,6 +8,8 @@ import {
   Typography,
   Box
 } from "@mui/material";
+import { doodleCard } from "../../utils/style";
+
 
 export default function BmiForm({ onCalculate }) {
   const handleSubmit = e => {
@@ -27,7 +29,8 @@ export default function BmiForm({ onCalculate }) {
       sx={{
         display: "flex",
         justifyContent: "center",
-        width: "100%"
+        width: "100%",
+
       }}
     >
       <Card
@@ -38,7 +41,8 @@ export default function BmiForm({ onCalculate }) {
             md: "80%"     // desktop and up
           },
           borderRadius: 5,
-          boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
+          boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+          ...doodleCard
         }}
       >
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>

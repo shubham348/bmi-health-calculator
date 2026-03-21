@@ -14,7 +14,7 @@ export default function PageHeader({ title }) {
           sx={{
             cursor: "pointer",
             mr: 2,
-            color: "#ffffff",
+            color: "#1e2022",
             fontSize: 28,
             transition: "0.2s",
             "&:hover": { opacity: 0.7 }
@@ -26,7 +26,7 @@ export default function PageHeader({ title }) {
           aria-label="breadcrumb"
           sx={{
             "& .MuiBreadcrumbs-separator": {
-              color: "#ffffffaa"
+              color: "#1e2022"
             }
           }}
         >
@@ -34,7 +34,7 @@ export default function PageHeader({ title }) {
             to="/"
             style={{
               textDecoration: "none",
-              color: "#ffffffcc",
+              color: "#1e2022",
               fontWeight: 600
             }}
           >
@@ -43,7 +43,7 @@ export default function PageHeader({ title }) {
 
           <Typography
             sx={{
-              color: "#ffffff",
+              color: "#1e2022",
               fontWeight: 600
             }}
           >

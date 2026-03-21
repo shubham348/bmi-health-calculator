@@ -9,10 +9,11 @@ import {
 } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { youtubeChannels } from "../../utils/proteinVideos";
+import { doodleCard } from "../../utils/style";
 
 export default function ProteinChannels() {
   return (
-    <Card sx={{ borderRadius: 5 }}>
+    <Card sx={{ borderRadius: 5, ...doodleCard }}>
       <CardContent sx={{ p: { xs: 3, md: 4 } }}>
         <Typography variant="h5" fontWeight={600} mb={3}>
           Recommended High-Protein YouTube Channels

@@ -27,10 +27,11 @@ const resources = [
     source: "WHO"
   }
 ];
+import { doodleCard } from "../../utils/style";
 
 export default function Resources() {
   return (
-    <Card sx={{ borderRadius: 5 }}>
+    <Card sx={{ borderRadius: 5,...doodleCard }}>
       <CardContent sx={{ p: 4 }}>
         <Typography variant="h5" fontWeight={700} mb={3}>
           Learn More from Trusted Sources

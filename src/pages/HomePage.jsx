@@ -56,6 +56,7 @@ const pages = [
 
 
 ];
+import { doodleCard } from "../utils/style";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -91,7 +92,8 @@ export default function HomePage() {
               "&:hover": {
                 transform: "translateY(-6px)",
                 boxShadow: "0 12px 30px rgba(0,0,0,0.12)"
-              }
+              },
+              ...doodleCard
             }}
           >
             <Box sx={{ color: "#004d7a" }}>

@@ -19,12 +19,13 @@ import { TableContainer, Paper } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 import { proteinSources } from "../../utils/proteinSources";
+import { doodleCard } from "../../utils/style";
 
 export default function ProteinSources() {
   const [diet, setDiet] = useState("veg");
 
   return (
-    <Card sx={{ borderRadius: 5 }}>
+    <Card sx={{ borderRadius: 5 ,...doodleCard}}>
       <Accordion
         defaultExpanded={false}
         sx={{

@@ -15,6 +15,7 @@ import { Link as RouterLink } from "react-router-dom";
 import PageLayout from "../components/PageLayout";
 import EducationSection from "../components/EducationSection";
 import { calculateMacros } from "../utils/macros";
+import { doodleCard } from "../utils/style";
 
 export default function MacroCalculatorPage() {
   const [preset, setPreset] = useState("40/30/30");
@@ -66,7 +67,8 @@ export default function MacroCalculatorPage() {
           <Card
             sx={{
               borderRadius: 5,
-              boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
+              boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+              ...doodleCard
             }}
           >
             <CardContent sx={{ p: { xs: 3, md: 4 } }}>
@@ -134,7 +136,7 @@ export default function MacroCalculatorPage() {
               sx={{
                 borderRadius: 5,
                 background: "linear-gradient(135deg, #ecfdf5, #ffffff)",
-                border: "1px solid #e5e7eb"
+                border: "1px solid #e5e7eb",
               }}
             >
               <CardContent sx={{ p: 4 }}>
@@ -159,7 +161,7 @@ export default function MacroCalculatorPage() {
         </Box>
 
         {/* ================= EDUCATION FULL WIDTH ================= */}
-        <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%" }}>
+        <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%" ,...doodleCard}}>
           <EducationSection title="Macronutrient Education & Dietary Guidance">
 
             <Box>

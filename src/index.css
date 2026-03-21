@@ -1,0 +1,15 @@
+html, body, #root {
+  height: 100%;
+  overflow: hidden; /* ❗ stop page scroll */
+}
+:root {
+    --bg-cream: #fcf2db;
+    --ink-black: #1e2022;
+    --marker-blue: #0c64e6;
+    --olive-green: #658d3e;
+    --lemon-yellow: #f4d345;
+    --white: #ffffff;
+    --stroke-w: 3.5px;
+    --font-display: 'Kalam', cursive;
+    --font-body: 'Patrick Hand', cursive;
+}

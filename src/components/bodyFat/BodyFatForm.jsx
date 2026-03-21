@@ -9,6 +9,7 @@ import {
   Box
 } from "@mui/material";
 import { useState } from "react";
+import { doodleCard } from "../../utils/style";
 
 export default function BodyFatForm({ onCalculate }) {
   const [form, setForm] = useState({
@@ -45,7 +46,7 @@ export default function BodyFatForm({ onCalculate }) {
           xs: "100%",   // mobile
           sm: "90%",   // tablet
           md: "80%"     // desktop and up
-        }, borderRadius: 5
+        }, borderRadius: 5, ...doodleCard
       }}>
         <CardContent sx={{ p: { xs: 4, md: 5 } }}>
           <Typography variant="h5" fontWeight={600} mb={1}>

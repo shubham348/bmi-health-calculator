@@ -19,11 +19,12 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { doodleCard } from "../../utils/style";
 
 export default function BodyFatEducation() {
   return (
     <>
-      <Card sx={{ borderRadius: 5 }}>
+      <Card sx={{ borderRadius: 5,...doodleCard }}>
         <Accordion defaultExpanded sx={{ borderRadius: 5 }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
             <Typography variant="h5" fontWeight={600}>
@@ -204,7 +205,7 @@ export default function BodyFatEducation() {
         </Accordion>
       </Card>
       {/* ================= SOURCES ================= */}
-      <Card sx={{ borderRadius: 5 ,marginTop:"1rem"}}>
+      <Card sx={{ borderRadius: 5 ,marginTop:"1rem",...doodleCard}}>
         <CardContent sx={{ p: 4 }}>
           <Typography variant="h6" fontWeight={600} mb={2}>
             Learn More from Trusted Sources

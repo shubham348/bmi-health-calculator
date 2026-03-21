@@ -16,6 +16,7 @@ import PageLayout from "../components/PageLayout";
 import { calculateLeanBodyMass } from "../utils/leanBodyMass";
 import { calculateBodyFat } from "../utils/bodyFat";
 import EducationSection from "../components/EducationSection";
+import { doodleCard } from "../utils/style";
 
 export default function LeanBodyMassPage() {
   const [mode, setMode] = useState("direct");
@@ -74,7 +75,8 @@ export default function LeanBodyMassPage() {
           <Card
             sx={{
               borderRadius: 5,
-              boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
+              boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+              ...doodleCard
             }}
           >
             <CardContent sx={{ p: { xs: 3, md: 4 } }}>
@@ -187,7 +189,7 @@ export default function LeanBodyMassPage() {
         </Box>
 
         {/* ================= EDUCATION FULL WIDTH ================= */}
-        <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%" }}>
+        <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%",...doodleCard }}>
           <EducationSection title="Lean Body Mass Education & Health Information">
 
             <Box>

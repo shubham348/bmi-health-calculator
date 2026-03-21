@@ -19,18 +19,17 @@ import {
 import DownloadIcon from "@mui/icons-material/Download";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { doodleCard } from "../../utils/style";
 
 export default function BmiEducation() {
   const [activeChart, setActiveChart] = useState(null);
-  // activeChart: "boys" | "girls" | null
-
-
   return (
     <Accordion
       sx={{
         borderRadius: 5,
         border: "1px solid #e5e7eb",
-        "&:before": { display: "none" }
+        "&:before": { display: "none" },
+        ...doodleCard
       }}
     >
       {/* ===== HEADER ===== */}

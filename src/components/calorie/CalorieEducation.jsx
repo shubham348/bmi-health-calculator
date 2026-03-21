@@ -6,11 +6,12 @@ import {
   Box,
   Divider,
 } from "@mui/material";
+import { doodleCard } from "../../utils/style";
 
 export default function CalorieEducation() {
 
   return (
-    <Card sx={{ borderRadius: 5 }}>
+    <Card sx={{ borderRadius: 5 ,...doodleCard}}>
       <CardContent sx={{ p: { xs: 4, md: 5 } }}>
         <Stack spacing={4}>
           {/* ================= HEADER ================= */}

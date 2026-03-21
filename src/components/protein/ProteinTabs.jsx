@@ -8,12 +8,13 @@ import {
 import ProteinRecipes from "./ProteinRecipes";
 import ProteinTextRecipes from "./ProteinTextRecipes";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { doodleCard } from "../../utils/style";
 
 export default function ProteinTabs() {
   const [tab, setTab] = useState(0);
 
   return (
-    <Card sx={{ borderRadius: 5, mt: 4 }}>
+    <Card sx={{ borderRadius: 5, mt: 4, ...doodleCard }}>
       <Accordion defaultExpanded sx={{ borderRadius: 5 }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
           <Typography variant="h5" fontWeight={600}>

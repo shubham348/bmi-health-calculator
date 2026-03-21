@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import PageLayout from "../components/PageLayout";
 import { calculateBMR } from "../utils/bmr";
+import { doodleCard } from "../utils/style";
 
 export default function BmrPage() {
   const [bmr, setBmr] = useState(null);
@@ -49,7 +50,8 @@ export default function BmrPage() {
         <Card
           sx={{
             borderRadius: 5,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.05)"
+            boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+            ...doodleCard
           }}
         >
           <CardContent sx={{ p: { xs: 3, md: 4 } }}>
