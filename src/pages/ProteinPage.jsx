@@ -10,13 +10,11 @@ import ProteinTabs from "../components/protein/ProteinTabs";
 export default function ProteinPage() {
   return (
     <PageLayout title="Protien Sources & Recipies" showBreadcrumb>
-      <Stack spacing={4} mt={4}>
+      <Stack spacing={6} mt={4}>
         <ProteinSources />
         <CalorieDenseFood />
         <FiberFoods />
         <ProteinTabs/>
-        {/* <ProteinRecipes />
-        <ProteinTextRecipes/> */}
         <ProteinChannels />
       </Stack>
     </PageLayout>

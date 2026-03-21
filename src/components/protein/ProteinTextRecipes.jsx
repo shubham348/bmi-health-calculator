@@ -8,6 +8,7 @@ import {
   DialogContent,
   IconButton,
   TextField,
+  FormControl,
   Button
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -60,26 +61,31 @@ ${activeRecipe.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}
 
   return (
     <>
-      <Card elevation={0} sx={{ borderRadius: 5 }}>
+      <Card elevation={0}>
         <CardContent sx={{ p: { xs: 2, md: 3 } }}>
           <Typography color="text.secondary" mb={2}>
             Home Made Recipes
           </Typography>
 
+          <Box sx={{ mb: 1, maxWidth: 300 }}>
+            <FormControl fullWidth size="small">
+              <TextField
+
+                placeholder="Search recipes..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                size="small"
+                sx={{
+                  mb: 3,
+                  maxWidth: 300,
+                  background: "#fafafa",
+                  borderRadius: 2
+                }}
+              />
+            </FormControl>
+          </Box>
           {/* SEARCH */}
-          <TextField
-            fullWidth
-            placeholder="Search recipes..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            size="small"
-            sx={{
-              mb: 3,
-              maxWidth: 400,
-              background: "#fafafa",
-              borderRadius: 2
-            }}
-          />
+
 
           {/* LIST */}
 
@@ -113,7 +119,7 @@ ${activeRecipe.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  overflow:"unset",
+                  overflow: "unset",
                   px: 2,
                   py: 1.5, // ✅ reduced height
 
@@ -127,7 +133,12 @@ ${activeRecipe.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}
                   }
                 }}
               >
-                <Box sx={{ display: "flex", alignItems: "center", gap: 2, width: "100%" }}>
+                <Box sx={{
+                  display: "flex", alignItems: "center", gap: 2, width: "100%", flexDirection: "row",
+                  "@media (max-width:360px)": {
+                    flexDirection: "column-reverse"
+                  }
+                }}>
 
                   {/* TITLE */}
                   <Typography fontWeight={600}>

@@ -10,21 +10,28 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Box
+  Box,
+  Stack,
+  Chip,
+  useTheme,
+  useMediaQuery
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { caloriefoods } from "../../utils/proteinSources";
 import { doodleCard } from "../../utils/style";
 
 export default function CalorieDenseFood() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const isHighCalorie = (cal) => cal >= 300; // 🔥 tweak if needed
 
   return (
     <Card sx={{ borderRadius: 5, ...doodleCard }}>
       <Accordion
-        defaultExpanded={false}
         sx={{
           borderRadius: 5,
-          boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+          boxShadow: "none",
           "&::before": { display: "none" }
         }}
       >
@@ -44,60 +51,136 @@ export default function CalorieDenseFood() {
                 fiber, and calorie density per 100g
               </Typography>
 
-              {/* SCROLL CONTAINER */}
-              <Box
-                sx={{
-                  overflow: "auto",
-                  maxHeight: { xs: 380, md: 500 },
-                  borderRadius: 3,
-                  border: "1px solid #eee"
-                }}
-              >
-                <Table stickyHeader size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{
-                        position: "sticky",
-                        left: 0,
-                        background: "#fff",
-                        fontWeight: 500,
-                        zIndex: 3
-                      }}><b>Food</b></TableCell>
-                      <TableCell>Fiber (g)</TableCell>
-                      <TableCell>Water %</TableCell>
-                      <TableCell>Carbs (g)</TableCell>
-                      <TableCell>Protein (g)</TableCell>
-                      <TableCell>Fat (g)</TableCell>
-                      <TableCell>Calories</TableCell>
-                    </TableRow>
-                  </TableHead>
-
-                  <TableBody>
+              {/* 📱 MOBILE VIEW */}
+              {isMobile ? (
+                <Box
+                  sx={{
+                    maxHeight: { xs: 380, md: 500 }, // 🔥 same as table
+                    overflowY: "auto",
+                    pr: 1, // space for scrollbar
+                  }}
+                >
+                  <Stack spacing={2}>
                     {caloriefoods.map((item, index) => (
-                      <TableRow key={index}>
+                      <Box
+                        key={index}
+                        sx={{
+                          border: "2px solid #1e2022",
+                          borderRadius: "12px",
+                          p: 2,
+                          background: "#fff",
+                          width: "100%",
+                          boxSizing: "border-box"
+                        }}
+                      >
+                        {/* NAME + CHIP */}
+                        <Stack direction="row" spacing={1} alignItems="center" flexWrap="wrap">
+                          <Typography fontWeight={700}>
+                            {item.name}
+                          </Typography>
+
+                          {isHighCalorie(item.calories100g) && (
+                            <Chip
+                              label="High Cal"
+                              size="small"
+                              sx={{
+                                height: 22,
+                                fontSize: "11px",
+                                background: "#fff3e0",
+                                color: "#ef6c00",
+                                fontWeight: 600
+                              }}
+                            />
+                          )}
+                        </Stack>
+
+                        {/* DETAILS */}
+                        <Typography variant="body2" mt={1}>
+                          <b>Calories:</b> {item.calories100g}
+                        </Typography>
+
+                        <Typography variant="body2">
+                          <b>Protein:</b> {item.protein} g
+                        </Typography>
+
+                        <Typography variant="body2">
+                          <b>Carbs:</b> {item.carbs} g
+                        </Typography>
+
+                        <Typography variant="body2">
+                          <b>Fat:</b> {item.fat} g
+                        </Typography>
+
+                        <Typography variant="body2">
+                          <b>Fiber:</b> {item.fiber} g
+                        </Typography>
+
+                        <Typography variant="body2">
+                          <b>Water:</b> {item.water} %
+                        </Typography>
+                      </Box>
+                    ))}
+                  </Stack>
+                </Box>
+
+              ) : (
+                /* 💻 DESKTOP TABLE (same as your working version) */
+                <Box
+                  sx={{
+                    overflow: "auto",
+                    maxHeight: { xs: 380, md: 500 },
+                    borderRadius: 3,
+                    border: "1px solid #eee"
+                  }}
+                >
+                  <Table stickyHeader size="small">
+                    <TableHead>
+                      <TableRow>
                         <TableCell
                           sx={{
                             position: "sticky",
                             left: 0,
                             background: "#fff",
-                            fontWeight: 500
+                            fontWeight: 500,
+                            zIndex: 3
                           }}
                         >
-                          <b>
-                            {item.name}
-                          </b>
+                          <b>Food</b>
                         </TableCell>
-                        <TableCell>{item.water}</TableCell>
-                        <TableCell>{item.fiber}</TableCell>
-                        <TableCell>{item.carbs}</TableCell>
-                        <TableCell>{item.protein}</TableCell>
-                        <TableCell>{item.fat}</TableCell>
-                        <TableCell>{item.calories100g}</TableCell>
+                        <TableCell>Fiber (g)</TableCell>
+                        <TableCell>Water %</TableCell>
+                        <TableCell>Carbs (g)</TableCell>
+                        <TableCell>Protein (g)</TableCell>
+                        <TableCell>Fat (g)</TableCell>
+                        <TableCell>Calories</TableCell>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </Box>
+                    </TableHead>
+
+                    <TableBody>
+                      {caloriefoods.map((item, index) => (
+                        <TableRow key={index}>
+                          <TableCell
+                            sx={{
+                              position: "sticky",
+                              left: 0,
+                              background: "#fff",
+                              fontWeight: 500
+                            }}
+                          >
+                            <b>{item.name}</b>
+                          </TableCell>
+                          <TableCell>{item.fiber}</TableCell>
+                          <TableCell>{item.water}</TableCell>
+                          <TableCell>{item.carbs}</TableCell>
+                          <TableCell>{item.protein}</TableCell>
+                          <TableCell>{item.fat}</TableCell>
+                          <TableCell>{item.calories100g}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Box>
+              )}
             </CardContent>
           </Card>
         </AccordionDetails>

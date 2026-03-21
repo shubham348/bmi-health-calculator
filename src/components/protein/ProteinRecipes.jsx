@@ -86,7 +86,7 @@ export default function ProteinRecipes() {
     <>
       <Card elevation={0}>
         <CardContent sx={{ p: { xs: 2, md: 3 } }}>
-          <Typography color="text.secondary" mb={3}>
+          <Typography color="text.secondary" mb={2}>
             Curated Indian high-protein recipes for muscle gain, fat loss,
             and budget-friendly diets. Select an ingredient to filter.
           </Typography>
