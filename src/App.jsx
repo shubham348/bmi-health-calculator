@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import HomePage from "./pages/HomePage";
@@ -48,6 +49,17 @@ function PageWrapper({ children }) {
 
 export default function App() {
   const scrollRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (scrollRef?.current) {
+      scrollRef.current.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
+    }
+  }, [location.pathname]);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -62,7 +74,6 @@ export default function App() {
 
         }}
       >
-        <Box sx={{ height: "40px", flexShrink: 0 }} />
         <Header />
         <Box
           ref={scrollRef}

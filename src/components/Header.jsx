@@ -7,7 +7,8 @@ export default function Header() {
         xs: "90%",  // mobile
         sm: "80%",   // tablet
         md: "50%"    // desktop
-      }, padding: 2
+      }, padding: 2,
+      mt:2
     }}>
       <Typography variant="h3" fontWeight={700} color={"primary"}>
         Health Metrics Hub
