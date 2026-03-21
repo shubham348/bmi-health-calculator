@@ -2,10 +2,10 @@ import {
   Card,
   CardContent,
   Typography,
-  Grid,
-  Avatar,
   Stack,
-  Box
+  Box,
+  Paper,
+  Link
 } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { youtubeChannels } from "../../utils/proteinVideos";
@@ -15,57 +15,49 @@ export default function ProteinChannels() {
   return (
     <Card sx={{ borderRadius: 5, ...doodleCard }}>
       <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-        <Typography variant="h5" fontWeight={600} mb={3}>
+        <Typography variant="h6" fontWeight={600} mb={2}>
           Recommended High-Protein YouTube Channels
         </Typography>
 
-        <Grid container spacing={3}>
-          {youtubeChannels.map(channel => (
-            <Grid item xs={12} sm={6} md={4} key={channel.url}>
-              <Card
-                sx={{
-                  borderRadius: 4,
-                  cursor: "pointer",
-                  transition: "0.2s",
-                  "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.12)"
-                  }
-                }}
-                onClick={() => window.open(channel.url, "_blank")}
-              >
-                <CardContent>
-                  <Stack direction="row" spacing={2} alignItems="center">
-                    <Avatar
-                      sx={{
-                        bgcolor: "primary.main",
-                        width: 48,
-                        height: 48
-                      }}
-                    >
-                      {channel.name[0]}
-                    </Avatar>
+        <Stack spacing={2}>
+          {youtubeChannels.map((channel) => (
+            <Paper
+              key={channel.url}
+              component={Link}
+              href={channel.url}
+              target="_blank"
+              underline="none"
+              sx={{
+                p: 2.5,
+                borderRadius: 3,
+                border: "1px solid #e5e7eb",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                transition: "0.2s",
+                width: "100%",
+                boxSizing: "border-box",
 
-                    <Box>
-                      <Typography fontWeight={600}>
-                        {channel.name}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        display="flex"
-                        alignItems="center"
-                        gap={0.5}
-                      >
-                        View Channel <OpenInNewIcon fontSize="small" />
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </CardContent>
-              </Card>
-            </Grid>
+                "&:hover": {
+                  boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
+                  transform: "translateY(-2px)"
+                }
+              }}
+            >
+              <Box>
+                <Typography fontWeight={600}>
+                  {channel.name}
+                </Typography>
+
+                <Typography variant="body2" color="text.secondary">
+                  High-protein recipes, diet tips & fitness content
+                </Typography>
+              </Box>
+
+              <OpenInNewIcon color="primary" />
+            </Paper>
           ))}
-        </Grid>
+        </Stack>
       </CardContent>
     </Card>
   );
