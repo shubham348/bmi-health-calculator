@@ -5,7 +5,8 @@ import FiberFoods from "../components/protein/FiberFoods";
 import ProteinRecipes from "../components/protein/ProteinRecipes";
 import ProteinChannels from "../components/protein/ProteinChannels";
 import PageLayout from "../components/PageLayout";
-
+import ProteinTextRecipes from "../components/protein/ProteinTextRecipes";
+import ProteinTabs from "../components/protein/ProteinTabs";
 export default function ProteinPage() {
   return (
     <PageLayout title="Protien Sources & Recipies" showBreadcrumb>
@@ -13,7 +14,9 @@ export default function ProteinPage() {
         <ProteinSources />
         <CalorieDenseFood />
         <FiberFoods />
-        <ProteinRecipes />
+        <ProteinTabs/>
+        {/* <ProteinRecipes />
+        <ProteinTextRecipes/> */}
         <ProteinChannels />
       </Stack>
     </PageLayout>

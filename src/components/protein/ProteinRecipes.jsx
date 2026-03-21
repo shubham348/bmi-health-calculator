@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useEffect, useState, useRef } from "react";
 import {
   Card,
   CardContent,
@@ -28,6 +28,7 @@ export default function ProteinRecipes() {
   const [open, setOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("general");
+  const scrollRef = useRef(null);
 
   /* ===============================
      FORMAT & NORMALIZE VIDEO DATA
@@ -75,156 +76,139 @@ export default function ProteinRecipes() {
     setActiveVideo(null);
   };
 
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = 0;
+    }
+  }, [selectedCategory]);
+
   return (
     <>
-      <Card sx={{ borderRadius: 5 }}>
-        <Accordion
-          defaultExpanded
-          sx={{
-            borderRadius: 5,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
-            "&::before": { display: "none" }
-          }}
-        >
-          {/* ===== HEADER ===== */}
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            sx={{ px: 4, py: 2 }}
+      <Card elevation={0}>
+        <CardContent sx={{ p: { xs: 2, md: 3 } }}>
+          <Typography color="text.secondary" mb={3}>
+            Curated Indian high-protein recipes for muscle gain, fat loss,
+            and budget-friendly diets. Select an ingredient to filter.
+          </Typography>
+
+          {/* ===== CATEGORY DROPDOWN ===== */}
+          <Box sx={{ mb: 4, maxWidth: 300 }}>
+            <FormControl fullWidth size="small">
+              <InputLabel>Ingredient</InputLabel>
+              <Select
+                value={selectedCategory}
+                label="Ingredient"
+                onChange={(e) =>
+                  setSelectedCategory(e.target.value)
+                }
+                sx={{
+                  borderRadius: 3,
+                  backgroundColor: "#fafafa",
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#eee"
+                  },
+                  "&:hover .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#ccc"
+                  }
+                }}
+              >
+                {categories.map((cat) => (
+                  <MenuItem key={cat} value={cat}>
+                    {cat === "general"
+                      ? "General"
+                      : cat.charAt(0).toUpperCase() +
+                      cat.slice(1)}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+
+          {/* ===== VIDEO GRID ===== */}
+          <Box
+            ref={scrollRef}
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 3,
+              justifyContent: "center",
+              maxHeight: "600px",
+              overflow: "auto"
+            }}
           >
-            <Typography variant="h5" fontWeight={600}>
-              High Protein Recipe Videos
-            </Typography>
-          </AccordionSummary>
-
-          {/* ===== CONTENT ===== */}
-          <AccordionDetails>
-            <Card elevation={0}>
-              <CardContent sx={{ p: { xs: 2, md: 3 } }}>
-                <Typography color="text.secondary" mb={3}>
-                  Curated Indian high-protein recipes for muscle gain, fat loss,
-                  and budget-friendly diets. Select an ingredient to filter.
-                </Typography>
-
-                {/* ===== CATEGORY DROPDOWN ===== */}
-                <Box sx={{ mb: 4, maxWidth: 300 }}>
-                  <FormControl fullWidth size="small">
-                    <InputLabel>Ingredient</InputLabel>
-                    <Select
-                      value={selectedCategory}
-                      label="Ingredient"
-                      onChange={(e) =>
-                        setSelectedCategory(e.target.value)
-                      }
-                      sx={{
-                        borderRadius: 3,
-                        backgroundColor: "#fafafa",
-                        "& .MuiOutlinedInput-notchedOutline": {
-                          borderColor: "#eee"
-                        },
-                        "&:hover .MuiOutlinedInput-notchedOutline": {
-                          borderColor: "#ccc"
-                        }
-                      }}
-                    >
-                      {categories.map((cat) => (
-                        <MenuItem key={cat} value={cat}>
-                          {cat === "general"
-                            ? "General"
-                            : cat.charAt(0).toUpperCase() +
-                              cat.slice(1)}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Box>
-
-                {/* ===== VIDEO GRID ===== */}
-                <Box
+            {filteredVideos.map((video, i) => (
+              <Box
+                key={i}
+                sx={{
+                  flex: {
+                    xs: "1 1 100%",
+                    sm: "1 1 48%",
+                    md: "1 1 30%"
+                  },
+                  maxWidth: {
+                    xs: "100%",
+                    sm: "48%",
+                    md: "30%"
+                  }
+                }}
+              >
+                <Card
+                  onClick={() => handleOpen(video)}
                   sx={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 3,
-                    justifyContent: "center",
-                    maxHeight: "600px",
-                    overflow: "auto"
+                    borderRadius: 3,
+                    overflow: "hidden",
+                    cursor: "pointer",
+                    boxShadow:
+                      "0 6px 18px rgba(0,0,0,0.08)",
+                    transition: "transform 0.2s ease",
+                    "&:hover": {
+                      transform: "translateY(-4px)"
+                    }
                   }}
                 >
-                  {filteredVideos.map((video, i) => (
+                  <Box sx={{ position: "relative" }}>
                     <Box
-                      key={i}
+                      component="img"
+                      src={
+                        video.type === "instagram"
+                          ? "https://sharethis.com/wp-content/uploads/2022/11/Blog_IGReels_110822-min.png"
+                          : `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`
+                      }
+                      alt="High protein recipe"
                       sx={{
-                        flex: {
-                          xs: "1 1 100%",
-                          sm: "1 1 48%",
-                          md: "1 1 30%"
-                        },
-                        maxWidth: {
-                          xs: "100%",
-                          sm: "48%",
-                          md: "30%"
-                        }
+                        width: "100%",
+                        height: 180,
+                        objectFit: "cover"
                       }}
-                    >
-                      <Card
-                        onClick={() => handleOpen(video)}
+                    />
+
+                    {/* Only show play icon for YouTube */}
+                    {video.type !== "instagram" && (
+                      <PlayCircleOutlineIcon
                         sx={{
-                          borderRadius: 3,
-                          overflow: "hidden",
-                          cursor: "pointer",
-                          boxShadow:
-                            "0 6px 18px rgba(0,0,0,0.08)",
-                          transition: "transform 0.2s ease",
-                          "&:hover": {
-                            transform: "translateY(-4px)"
-                          }
+                          position: "absolute",
+                          top: "50%",
+                          left: "50%",
+                          transform:
+                            "translate(-50%, -50%)",
+                          fontSize: 56,
+                          color: "#fff",
+                          opacity: 0.95
                         }}
-                      >
-                        <Box sx={{ position: "relative" }}>
-                          <Box
-                            component="img"
-                            src={
-                              video.type === "instagram"
-                                ? "https://sharethis.com/wp-content/uploads/2022/11/Blog_IGReels_110822-min.png"
-                                : `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`
-                            }
-                            alt="High protein recipe"
-                            sx={{
-                              width: "100%",
-                              height: 180,
-                              objectFit: "cover"
-                            }}
-                          />
+                      />
+                    )}
+                  </Box>
+                </Card>
+              </Box>
+            ))}
 
-                          {/* Only show play icon for YouTube */}
-                          {video.type !== "instagram" && (
-                            <PlayCircleOutlineIcon
-                              sx={{
-                                position: "absolute",
-                                top: "50%",
-                                left: "50%",
-                                transform:
-                                  "translate(-50%, -50%)",
-                                fontSize: 56,
-                                color: "#fff",
-                                opacity: 0.95
-                              }}
-                            />
-                          )}
-                        </Box>
-                      </Card>
-                    </Box>
-                  ))}
-
-                  {filteredVideos.length === 0 && (
-                    <Typography color="text.secondary">
-                      No recipes found for this category.
-                    </Typography>
-                  )}
-                </Box>
-              </CardContent>
-            </Card>
-          </AccordionDetails>
-        </Accordion>
+            {filteredVideos.length === 0 && (
+              <Typography color="text.secondary">
+                No recipes found for this category.
+              </Typography>
+            )}
+          </Box>
+        </CardContent>
       </Card>
 
       {/* ===== YOUTUBE MODAL ===== */}

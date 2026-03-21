@@ -505,3 +505,163 @@ export const proteinVideoUrls = [
   ...snackRecipies,
 ];
 
+export const proteinRecipesText = [
+  {
+    title: "Kaddu Pasta",
+    category: "veg",
+    protein: "Low",
+    ingredients: [
+      "250g Kaddu (Pumpkin)",
+      "1–2 Carrots",
+      "2 Medium Tomatoes",
+      "1 Onion",
+      "Garlic",
+      "Pasta",
+      "Butter",
+      "Pasta Masala",
+      "Oregano",
+      "Chili Flakes",
+      "Salt",
+      "Black Pepper",
+      "Cheese Slice"
+    ],
+    steps: [
+      "Boil pasta and keep water aside",
+      "Cook onion, garlic in butter",
+      "Add kaddu, tomato, carrot and cook",
+      "Pressure cook until soft",
+      "Blend into puree",
+      "Add pasta water for consistency",
+      "Prepare flavor base with butter, masala, oregano, chili flakes",
+      "Mix pasta with sauce",
+      "Add cheese and black pepper while serving"
+    ]
+  },
+
+  {
+    title: "Zucchini Pasta",
+    category: "veg",
+    protein: "Low",
+    ingredients: [
+      "1 Zucchini",
+      "Mushrooms",
+      "Broccoli (optional)",
+      "1 Onion",
+      "Garlic",
+      "1–2 Carrots",
+      "Pasta",
+      "Butter",
+      "Italian seasoning",
+      "Chili flakes",
+      "Salt",
+      "Black pepper",
+      "Cheese slice"
+    ],
+    steps: [
+      "Boil pasta and keep water aside",
+      "Cook garlic and onion",
+      "Cook mushrooms first",
+      "Add zucchini, carrot, broccoli",
+      "Cook vegetables",
+      "Pressure cook until soft",
+      "Blend into puree",
+      "Add pasta water",
+      "Prepare sauce with butter, seasoning",
+      "Mix pasta and serve with cheese"
+    ]
+  },
+
+  {
+    title: "Roasted Spice Chicken",
+    category: "chicken",
+    protein: "High",
+    ingredients: [
+      "Chicken legs (2-3)",
+      "Coriander seeds",
+      "Red chili",
+      "Jeera",
+      "Black pepper",
+      "Lemon",
+      "Salt",
+      "Turmeric",
+      "Garlic",
+      "Ginger",
+      "Oil"
+    ],
+    steps: [
+      "Roast spices and grind",
+      "Boil chicken with spices, garlic, ginger",
+      "Cook until water evaporates",
+      "Add roasted spice powder",
+      "Cook for 5 minutes",
+      "Squeeze lemon and serve"
+    ]
+  },
+
+  {
+    title: "Quick Tandoori Chicken",
+    category: "chicken",
+    protein: "High",
+    ingredients: [
+      "Chicken breast",
+      "Tandoori masala",
+      "Salt",
+      "Turmeric",
+      "Black pepper",
+      "Curd (2 spoons)",
+      "Lemon"
+    ],
+    steps: [
+      "Clean and cut chicken",
+      "Marinate with masala, curd, lemon",
+      "Rest for 10 minutes",
+      "Cook on low heat with butter",
+      "Cook both sides evenly",
+      "Serve hot"
+    ]
+  },
+
+  {
+    title: "Green Chutney",
+    category: "sides",
+    protein: "Low",
+    ingredients: [
+      "Coriander leaves",
+      "Ginger",
+      "Garlic",
+      "Curd",
+      "Green chili",
+      "Peanuts",
+      "Salt",
+      "Water"
+    ],
+    steps: [
+      "Add all ingredients to mixer",
+      "Blend until smooth",
+      "Adjust water",
+      "Store in fridge (3-4 days)"
+    ]
+  },
+
+  {
+    title: "Vegetable Spring Rolls",
+    category: "veg",
+    protein: "Medium",
+    ingredients: [
+      "Carrot",
+      "Crushed paneer",
+      "Capsicum",
+      "Mushrooms",
+      "Rice paper sheets",
+      "Butter"
+    ],
+    steps: [
+      "Cook vegetables and paneer",
+      "Place filling in sheets",
+      "Roll tightly",
+      "Fry until crispy",
+      "Prepare sauce with soy, sriracha, honey, lemon",
+      "Serve hot"
+    ]
+  }
+];
