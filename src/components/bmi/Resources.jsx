@@ -31,9 +31,9 @@ import { doodleCard } from "../../utils/style";
 
 export default function Resources() {
   return (
-    <Card sx={{ borderRadius: 5,...doodleCard }}>
+    <Card sx={{ borderRadius: 5, ...doodleCard }}>
       <CardContent sx={{ p: 4 }}>
-        <Typography variant="h5" fontWeight={700} mb={3}>
+        <Typography variant="h5" fontWeight={700} mb={3} sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
           Learn More from Trusted Sources
         </Typography>
 
@@ -67,11 +67,12 @@ export default function Resources() {
                 }}
               >
                 <Box>
-                  <Typography fontWeight={600}>
+                  <Typography fontWeight={600} sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}>
                     {res.source} — {res.title}
                   </Typography>
                   <Typography
                     variant="body2"
+                    sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}
                     color="text.secondary"
                   >
                     {res.subtitle}

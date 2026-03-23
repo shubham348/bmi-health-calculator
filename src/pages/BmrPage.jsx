@@ -54,23 +54,32 @@ export default function BmrPage() {
             ...doodleCard
           }}
         >
-          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-            <Typography variant="h5" fontWeight={600} mb={1}>
+          <CardContent sx={{ p: { xs: 2, md: 4 } }}>
+            <Typography
+              fontWeight={600}
+              mb={1}
+              sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}
+            >
               Calculate Your BMR
             </Typography>
 
-            <Typography color="text.secondary" mb={3}>
+            <Typography
+              color="text.secondary"
+              mb={3}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Basal Metabolic Rate tells you how many calories your body burns at rest.
             </Typography>
 
             <form onSubmit={handleSubmit}>
-              <Stack spacing={2.5}>
+              <Stack spacing={{ xs: 2, md: 2.5 }}>
                 <TextField
                   label="Age"
                   name="age"
                   type="number"
                   required
                   fullWidth
+                  size="small"
                 />
 
                 <TextField
@@ -79,6 +88,7 @@ export default function BmrPage() {
                   name="gender"
                   required
                   fullWidth
+                  size="small"
                 >
                   <MenuItem value="male">Male</MenuItem>
                   <MenuItem value="female">Female</MenuItem>
@@ -90,6 +100,7 @@ export default function BmrPage() {
                   type="number"
                   required
                   fullWidth
+                  size="small"
                 />
 
                 <TextField
@@ -98,20 +109,20 @@ export default function BmrPage() {
                   type="number"
                   required
                   fullWidth
+                  size="small"
                 />
 
                 <Button
                   type="submit"
                   variant="contained"
-                  size="large"
                   fullWidth
                   sx={{
                     mt: 1,
-                    py: 1.4,
+                    py: { xs: 1, md: 1.4 },
                     borderRadius: 3,
                     fontWeight: 600,
                     textTransform: "none",
-                    fontSize: 16
+                    fontSize: { xs: 13, md: 16 }
                   }}
                 >
                   Calculate BMR
@@ -130,16 +141,26 @@ export default function BmrPage() {
               border: "1px solid #e5e7eb"
             }}
           >
-            <CardContent sx={{ p: 4 }}>
-              <Typography variant="h6" gutterBottom>
+            <CardContent sx={{ p: { xs: 2, md: 4 } }}>
+              <Typography
+                gutterBottom
+                sx={{ fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 600 }}
+              >
                 Your BMR Result
               </Typography>
 
-              <Typography fontSize={36} fontWeight={700}>
+              <Typography
+                fontWeight={700}
+                sx={{ fontSize: { xs: "1.8rem", md: "2.2rem" } }}
+              >
                 {bmr} kcal/day
               </Typography>
 
-              <Typography color="text.secondary" mt={1}>
+              <Typography
+                color="text.secondary"
+                mt={1}
+                sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+              >
                 This is the number of calories your body needs daily at complete rest.
               </Typography>
             </CardContent>

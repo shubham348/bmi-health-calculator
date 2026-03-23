@@ -9,29 +9,45 @@ import {
 import { doodleCard } from "../../utils/style";
 
 export default function CalorieEducation() {
-
   return (
-    <Card sx={{ borderRadius: 5 ,...doodleCard}}>
-      <CardContent sx={{ p: { xs: 4, md: 5 } }}>
-        <Stack spacing={4}>
-          {/* ================= HEADER ================= */}
-          <Typography variant="h5" fontWeight={600}>
+    <Card sx={{ borderRadius: 5, ...doodleCard }}>
+      <CardContent sx={{ p: { xs: 2, md: 5 } }}>
+        <Stack spacing={{ xs: 3, md: 4 }}>
+          
+          {/* HEADER */}
+          <Typography
+            variant="h5"
+            fontWeight={600}
+            sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}
+          >
             Calorie Education & Energy Balance
           </Typography>
 
-          {/* ================= INTRO ================= */}
+          {/* INTRO */}
           <Box>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              gutterBottom
+              sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
               What Are Calories?
             </Typography>
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Calories are a unit of energy. The human body requires energy to
               perform essential functions such as breathing, circulation,
               digestion, temperature regulation, and physical activity.
               Calories consumed through food and drink provide this energy.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Consuming more calories than the body expends leads to weight
               gain, while consuming fewer calories than expended results in
               weight loss. However, calorie balance is influenced by many
@@ -41,20 +57,32 @@ export default function CalorieEducation() {
 
           <Divider />
 
-          {/* ================= BMR EXPLANATION ================= */}
+          {/* BMR */}
           <Box>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              gutterBottom
+              sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
               Basal Metabolic Rate (BMR)
             </Typography>
 
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Basal Metabolic Rate (BMR) represents the amount of energy the body
               expends per day while at rest. It accounts for energy required to
               sustain vital functions such as heartbeat, respiration, and brain
               activity.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               This calculator uses the <b>Mifflin–St Jeor Equation</b>, which has
               been shown to be more accurate than the older Harris–Benedict
               Equation for most individuals. The Katch–McArdle formula may be
@@ -65,20 +93,32 @@ export default function CalorieEducation() {
 
           <Divider />
 
-          {/* ================= ACTIVITY & CALORIES ================= */}
+          {/* ACTIVITY */}
           <Box>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              gutterBottom
+              sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
               Activity Level & Daily Calorie Needs
             </Typography>
 
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               The BMR value represents calories needed at rest. To estimate real
               daily calorie requirements, BMR is multiplied by an activity
               factor (typically ranging from 1.2 to 1.9) depending on physical
               activity levels.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               The resulting value estimates how many calories a person can
               consume daily to maintain their current body weight.
             </Typography>
@@ -86,26 +126,42 @@ export default function CalorieEducation() {
 
           <Divider />
 
-          {/* ================= WEIGHT LOSS ================= */}
+          {/* WEIGHT LOSS */}
           <Box>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              gutterBottom
+              sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
               Calories & Weight Loss
             </Typography>
 
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Approximately 3,500 calories equate to 1 pound (~0.45 kg) of body
               weight. Reducing daily calorie intake by about 500 calories may
               result in a theoretical loss of 1 pound per week.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               It is generally not recommended to reduce intake by more than
               1,000 calories per day, as rapid weight loss can lead to muscle
               loss, metabolic slowdown, nutrient deficiencies, dehydration,
               and eventual weight regain.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Sustainable weight loss is best achieved through a combination of
               moderate calorie reduction, adequate protein intake, sufficient
               fiber, and regular physical activity.
@@ -114,26 +170,42 @@ export default function CalorieEducation() {
 
           <Divider />
 
-          {/* ================= CALORIE COUNTING ================= */}
+          {/* CALORIE COUNTING */}
           <Box>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              gutterBottom
+              sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
               Calorie Counting as a Weight-Loss Tool
             </Typography>
 
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Calorie counting helps improve nutritional awareness. Many people
               underestimate how many calories they consume daily, especially
               from snacks and beverages.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               While calorie counting can be effective, it is not an exact
               science. Food digestion, chewing effort, thermic effect of food,
               and food quality all influence how many calories the body actually
               absorbs.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Minimally processed foods such as vegetables, fruits, whole
               grains, and lean proteins generally promote satiety and metabolic
               health more effectively than highly processed foods.
@@ -142,20 +214,32 @@ export default function CalorieEducation() {
 
           <Divider />
 
-          {/* ================= ZIGZAG DIET ================= */}
+          {/* ZIGZAG */}
           <Box>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              gutterBottom
+              sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
               Zigzag Calorie Cycling
             </Typography>
 
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Zigzag calorie cycling involves alternating higher-calorie and
               lower-calorie days while maintaining the same weekly calorie
               total. This approach may help prevent metabolic adaptation and
               weight-loss plateaus.
             </Typography>
 
-            <Typography color="text.secondary" mt={1}>
+            <Typography
+              color="text.secondary"
+              mt={1}
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               There is no universally optimal zigzag pattern. Adjustments should
               be based on activity level, lifestyle, and personal adherence.
             </Typography>
@@ -163,13 +247,21 @@ export default function CalorieEducation() {
 
           <Divider />
 
-          {/* ================= FINAL NOTE ================= */}
+          {/* FINAL */}
           <Box>
-            <Typography variant="h6" fontWeight={600} gutterBottom>
+            <Typography
+              variant="h6"
+              fontWeight={600}
+              gutterBottom
+              sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+            >
               Final Note on Calories & Health
             </Typography>
 
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+            >
               Calories alone do not define health. Food quality, nutrient
               density, physical activity, sleep, and long-term consistency all
               play critical roles. The most effective strategy is one that fits

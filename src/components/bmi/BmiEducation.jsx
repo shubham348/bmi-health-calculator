@@ -37,7 +37,7 @@ export default function BmiEducation() {
         expandIcon={<ExpandMoreIcon />}
         sx={{ px: 4, py: 2 }}
       >
-        <Typography variant="h5" fontWeight={700}>
+        <Typography variant="h5" fontWeight={700} sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
           BMI Education & Health Information
         </Typography>
       </AccordionSummary>
@@ -46,18 +46,18 @@ export default function BmiEducation() {
       <AccordionDetails sx={{ px: { xs: 3, md: 5 }, pb: 4 }}>
 
         {/* ================= INTRODUCTION ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }} gutterBottom>
           Introduction
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}}  paragraph>
           Body Mass Index (BMI) is a measurement of a person’s leanness or
           corpulence based on their height and weight, and is intended to
           quantify overall tissue mass. It is widely used as a general indicator
           of whether a person has a healthy body weight for their height.
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           The BMI value is used to categorize individuals as underweight, normal
           weight, overweight, or obese depending on the range in which the value
           falls. These ranges may vary based on age and region and can be further
@@ -65,7 +65,7 @@ export default function BmiEducation() {
           severely obese.
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }}>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" } }}>
           While BMI is not a perfect measure of healthy body weight, it is a
           useful screening tool for identifying whether further medical
           evaluation or lifestyle changes may be required.
@@ -74,11 +74,11 @@ export default function BmiEducation() {
         <Divider sx={{ my: 4 }} />
 
         {/* ================= BMI TABLE FOR ADULTS ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           BMI Table for Adults
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           This table shows the World Health Organization (WHO) recommended BMI
           classifications for adults. It applies to both men and women aged 20 years or
           older.
@@ -93,10 +93,10 @@ export default function BmiEducation() {
         >
           <TableHead>
             <TableRow sx={{ backgroundColor: "#f3f4f6" }}>
-              <TableCell sx={{ fontWeight: 700 }}>
+              <TableCell sx={{ fontWeight: 700 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
                 Classification
               </TableCell>
-              <TableCell sx={{ fontWeight: 700 }}>
+              <TableCell sx={{ fontWeight: 700 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
                 BMI Range (kg/m²)
               </TableCell>
             </TableRow>
@@ -123,11 +123,11 @@ export default function BmiEducation() {
 
         <Divider sx={{ my: 4 }} />
         {/* ================= BMI CHART FOR ADULTS ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           BMI Chart for Adults
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           This chart illustrates Body Mass Index (BMI) categories based on World Health
           Organization (WHO) data. The colors represent the major BMI classifications,
           while the contour lines represent integer BMI values for different
@@ -151,11 +151,11 @@ export default function BmiEducation() {
         <Divider sx={{ my: 4 }} />
         
         {/* ================= BMI TABLE FOR CHILDREN & TEENS ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           BMI Table for Children and Teens (Age 2–20)
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           The Centers for Disease Control and Prevention (CDC) recommends BMI
           categorization for children and teens between the ages of 2 and 20 years.
           Unlike adults, BMI for children and adolescents is interpreted using
@@ -171,10 +171,10 @@ export default function BmiEducation() {
         >
           <TableHead>
             <TableRow sx={{ backgroundColor: "#f3f4f6" }}>
-              <TableCell sx={{ fontWeight: 700 }}>
+              <TableCell sx={{ fontWeight: 700 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
                 Category
               </TableCell>
-              <TableCell sx={{ fontWeight: 700 }}>
+              <TableCell sx={{ fontWeight: 700 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
                 Percentile Range
               </TableCell>
             </TableRow>
@@ -198,11 +198,11 @@ export default function BmiEducation() {
         <Divider sx={{ my: 4 }} />
 
         {/* ================= BMI CHART FOR CHILDREN & TEENS ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           BMI Chart for Children and Teens (Age 2–20)
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           The Centers for Disease Control and Prevention (CDC) provides BMI-for-age
           percentile growth charts for children and adolescents. These charts help
           assess body mass index relative to age and sex.
@@ -299,7 +299,7 @@ export default function BmiEducation() {
         <Divider sx={{ my: 4 }} />
 
         {/* ================= RISK ASSESSMENT ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           Risk Assessment
         </Typography>
 
@@ -307,7 +307,7 @@ export default function BmiEducation() {
           Risks Associated with Being Overweight
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           Being overweight increases the risk of a number of serious diseases and
           health conditions. According to the Centers for Disease Control and
           Prevention (CDC), these include:
@@ -343,7 +343,7 @@ export default function BmiEducation() {
           ))}
         </List>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           Maintaining a BMI below 25 kg/m² is generally recommended, but
           individuals should consult a healthcare professional for personalized
           advice.
@@ -353,7 +353,7 @@ export default function BmiEducation() {
           Risks Associated with Being Underweight
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           Being underweight also carries health risks, including:
         </Typography>
 
@@ -381,7 +381,7 @@ export default function BmiEducation() {
           ))}
         </List>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }}>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
           In some cases, being underweight may indicate an underlying medical
           condition such as anorexia nervosa. Medical evaluation is recommended
           when the cause is unclear.
@@ -390,11 +390,11 @@ export default function BmiEducation() {
         <Divider sx={{ my: 4 }} />
 
         {/* ================= BMI FORMULA (SI UNITS) ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           BMI Formula (Metric Units)
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           Body Mass Index (BMI) is calculated using a person’s weight and height. Below
           is the formula used in the International System of Units (SI), which uses
           kilograms and meters.
@@ -414,7 +414,7 @@ export default function BmiEducation() {
           </Typography>
         </Box>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           <b>Example:</b> For a person who weighs 72.57 kg and is 1.778 m tall:
         </Typography>
 
@@ -434,7 +434,7 @@ export default function BmiEducation() {
           </Typography>
         </Box>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} mt={2}>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} mt={2}>
           This is the same formula used by this calculator to compute your BMI.
         </Typography>
 
@@ -442,11 +442,11 @@ export default function BmiEducation() {
 
 
         {/* ================= BMI PRIME ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           BMI Prime
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           BMI Prime is the ratio of a person’s measured BMI to the upper limit of BMI
           that is considered “normal” by institutions such as the World Health
           Organization (WHO) and the Centers for Disease Control and Prevention (CDC).
@@ -454,7 +454,7 @@ export default function BmiEducation() {
           it is generally defined as 25 kg/m².
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           Because BMI Prime is a ratio of two BMI values, it is a dimensionless number.
           It allows for a quick assessment of how much a person’s BMI differs from the
           upper boundary of the healthy range and enables comparisons across populations
@@ -481,7 +481,7 @@ export default function BmiEducation() {
           </Typography>
         </Box>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           A BMI Prime value below 0.74 is classified as underweight. Values between 0.74
           and 1 are considered normal. Values greater than 1 indicate overweight, while
           values above 1.2 indicate obesity.
@@ -500,13 +500,13 @@ export default function BmiEducation() {
         >
           <TableHead>
             <TableRow sx={{ backgroundColor: "#f3f4f6" }}>
-              <TableCell sx={{ fontWeight: 700 }}>
+              <TableCell sx={{ fontWeight: 700 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
                 Classification
               </TableCell>
-              <TableCell sx={{ fontWeight: 700 }}>
+              <TableCell sx={{ fontWeight: 700 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
                 BMI
               </TableCell>
-              <TableCell sx={{ fontWeight: 700 }}>
+              <TableCell sx={{ fontWeight: 700 ,fontSize: { xs: "1rem", md: "1.25rem" }}}>
                 BMI Prime
               </TableCell>
             </TableRow>
@@ -536,11 +536,11 @@ export default function BmiEducation() {
 
 
         {/* ================= LIMITATIONS ================= */}
-        <Typography variant="h6" fontWeight={700} gutterBottom>
+        <Typography variant="h6" fontWeight={700} sx={{fontSize: { xs: "1rem", md: "1.25rem" }}} gutterBottom>
           Limitations of BMI
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           BMI is a widely used screening tool, but it does not account for body
           composition such as muscle mass, bone density, or fat distribution.
           Because of this, BMI should not be used as the sole indicator of
@@ -551,7 +551,7 @@ export default function BmiEducation() {
           In Adults
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }} paragraph>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 ,fontSize: { xs: "1rem", md: "1.25rem" }}} paragraph>
           BMI reflects excess body weight rather than excess body fat and is
           influenced by factors such as age, sex, ethnicity, activity level, and
           muscle mass. Older adults may have higher body fat levels at the same
@@ -563,7 +563,7 @@ export default function BmiEducation() {
           In Children and Adolescents
         </Typography>
 
-        <Typography sx={{ color: "#374151", lineHeight: 1.7 }}>
+        <Typography sx={{ color: "#374151", lineHeight: 1.7 , fontSize: { xs: "1rem", md: "1.25rem" }}}>
           Growth patterns, height, and sexual maturation affect BMI
           interpretation in children. BMI is more reliable for identifying
           obesity than overweight, where values may reflect fat-free mass rather

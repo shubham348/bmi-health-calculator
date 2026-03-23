@@ -45,24 +45,42 @@ export default function CalorieForm({ onCalculate }) {
 
   return (
     <Box display="flex" justifyContent="center">
-      <Card sx={{
-        width: {
-          xs: "100%",   // mobile
-          sm: "90%",   // tablet
-          md: "80%"     // desktop and up
-        }, borderRadius: 5,...doodleCard
-      }}>
-        <CardContent sx={{ p: { xs: 4, md: 5 } }}>
-          <Typography variant="h5" fontWeight={600} mb={1}>
+      <Card
+        sx={{
+          width: {
+            xs: "100%",
+            sm: "90%",
+            md: "80%"
+          },
+          borderRadius: 5,
+          ...doodleCard
+        }}
+      >
+        <CardContent sx={{ p: { xs: 2, md: 5 } }}>
+          {/* TITLE */}
+          <Typography
+            fontWeight={600}
+            mb={1}
+            sx={{
+              fontSize: { xs: "1.2rem", md: "1.5rem" }
+            }}
+          >
             Calorie Calculator
           </Typography>
 
-          <Typography color="text.secondary" mb={3}>
+          {/* SUBTEXT */}
+          <Typography
+            color="text.secondary"
+            mb={3}
+            sx={{
+              fontSize: { xs: "0.8rem", md: "0.95rem" }
+            }}
+          >
             Calculate how many calories you need per day.
           </Typography>
 
           <form onSubmit={handleSubmit}>
-            <Stack spacing={2.5}>
+            <Stack spacing={{ xs: 2, md: 2.5 }}>
               <TextField
                 select
                 label="Gender"
@@ -70,6 +88,7 @@ export default function CalorieForm({ onCalculate }) {
                 value={form.gender}
                 onChange={handleChange}
                 required
+                size="small" // ✅ mobile compact
               >
                 <MenuItem value="male">Male</MenuItem>
                 <MenuItem value="female">Female</MenuItem>
@@ -82,6 +101,7 @@ export default function CalorieForm({ onCalculate }) {
                 value={form.age}
                 onChange={handleChange}
                 required
+                size="small"
               />
 
               <TextField
@@ -91,6 +111,7 @@ export default function CalorieForm({ onCalculate }) {
                 value={form.height}
                 onChange={handleChange}
                 required
+                size="small"
               />
 
               <TextField
@@ -100,6 +121,7 @@ export default function CalorieForm({ onCalculate }) {
                 value={form.weight}
                 onChange={handleChange}
                 required
+                size="small"
               />
 
               <TextField
@@ -109,13 +131,21 @@ export default function CalorieForm({ onCalculate }) {
                 value={form.activity}
                 onChange={handleChange}
                 required
+                size="small"
               >
                 {activityLevels.map(a => (
-                  <MenuItem key={a.value} value={a.value}>
+                  <MenuItem
+                    key={a.value}
+                    value={a.value}
+                    sx={{
+                      fontSize: { xs: "0.8rem", md: "0.95rem" } // ✅ dropdown text fix
+                    }}
+                  >
                     {a.label}
                   </MenuItem>
                 ))}
               </TextField>
+
               <TextField
                 select
                 label="Goal"
@@ -124,6 +154,7 @@ export default function CalorieForm({ onCalculate }) {
                 required
                 value={form.goal}
                 onChange={handleChange}
+                size="small"
               >
                 <MenuItem value="maintain">Maintain weight</MenuItem>
                 <MenuItem value="loss">Fat loss</MenuItem>
@@ -133,9 +164,14 @@ export default function CalorieForm({ onCalculate }) {
               <Button
                 type="submit"
                 variant="contained"
-                size="large"
                 fullWidth
-                sx={{ py: 1.4, borderRadius: 3, fontWeight: 600 }}
+                sx={{
+                  py: { xs: 1, md: 1.4 },
+                  borderRadius: 3,
+                  fontWeight: 600,
+                  textTransform: "none",
+                  fontSize: { xs: 13, md: 16 }
+                }}
               >
                 Calculate Calories
               </Button>

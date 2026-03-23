@@ -48,7 +48,6 @@ export default function MacroCalculatorPage() {
     <PageLayout title="Macro Calculator" showBreadcrumb>
       <Stack spacing={6} mt={4}>
 
-        {/* ===== FORM + RESULT WRAPPER ===== */}
         <Box
           sx={{
             display: "grid",
@@ -63,7 +62,6 @@ export default function MacroCalculatorPage() {
           }}
         >
 
-          {/* ================= FORM CARD ================= */}
           <Card
             sx={{
               borderRadius: 5,
@@ -72,11 +70,20 @@ export default function MacroCalculatorPage() {
             }}
           >
             <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-              <Typography variant="h5" fontWeight={600} mb={1}>
+              <Typography
+                variant="h5"
+                fontWeight={600}
+                mb={1}
+                sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}
+              >
                 Macronutrient Calculator
               </Typography>
 
-              <Typography color="text.secondary" mb={3}>
+              <Typography
+                color="text.secondary"
+                mb={3}
+                sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+              >
                 Calculate daily protein, carbohydrate, and fat intake
                 based on your calorie target.
               </Typography>
@@ -120,7 +127,7 @@ export default function MacroCalculatorPage() {
                       borderRadius: 3,
                       fontWeight: 600,
                       textTransform: "none",
-                      fontSize: 16
+                      fontSize: { xs: 14, md: 16 }
                     }}
                   >
                     Calculate Macros
@@ -130,7 +137,6 @@ export default function MacroCalculatorPage() {
             </CardContent>
           </Card>
 
-          {/* ================= RESULT CARD ================= */}
           {result && (
             <Card
               sx={{
@@ -140,19 +146,23 @@ export default function MacroCalculatorPage() {
               }}
             >
               <CardContent sx={{ p: 4 }}>
-                <Typography variant="h6" gutterBottom>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+                >
                   Your Daily Macro Targets
                 </Typography>
 
-                <Typography fontSize={28} fontWeight={700}>
+                <Typography fontWeight={700} sx={{ fontSize: { xs: 20, md: 28 } }}>
                   Protein: {result.proteinGrams} g
                 </Typography>
 
-                <Typography fontSize={28} fontWeight={700}>
+                <Typography fontWeight={700} sx={{ fontSize: { xs: 20, md: 28 } }}>
                   Carbohydrates: {result.carbGrams} g
                 </Typography>
 
-                <Typography fontSize={28} fontWeight={700}>
+                <Typography fontWeight={700} sx={{ fontSize: { xs: 20, md: 28 } }}>
                   Fat: {result.fatGrams} g
                 </Typography>
               </CardContent>
@@ -160,15 +170,22 @@ export default function MacroCalculatorPage() {
           )}
         </Box>
 
-        {/* ================= EDUCATION FULL WIDTH ================= */}
         <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%" ,...doodleCard}}>
           <EducationSection title="Macronutrient Education & Dietary Guidance">
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography
+                variant="h6"
+                fontWeight={600}
+                gutterBottom
+                sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+              >
                 What Are Macronutrients?
               </Typography>
-              <Typography color="text.secondary">
+              <Typography
+                color="text.secondary"
+                sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+              >
                 Macronutrients are nutrients required in large amounts:
                 protein, carbohydrates, and fats. Each provides energy and
                 plays a specific role in body function and performance.
@@ -178,14 +195,22 @@ export default function MacroCalculatorPage() {
             <Divider />
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography
+                variant="h6"
+                fontWeight={600}
+                gutterBottom
+                sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+              >
                 Protein
               </Typography>
-              <Typography color="text.secondary">
+              <Typography
+                color="text.secondary"
+                sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+              >
                 Protein supports muscle repair, immune function, and metabolic health.
                 It provides 4 calories per gram.
               </Typography>
-              <Typography mt={1}>
+              <Typography mt={1} sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}>
                 👉 You can find a complete list of high-protein foods,
                 recipes, fiber-rich foods, and low-calorie options on the{" "}
                 <Link component={RouterLink} to="/protein" underline="hover">
@@ -197,10 +222,18 @@ export default function MacroCalculatorPage() {
             <Divider />
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography
+                variant="h6"
+                fontWeight={600}
+                gutterBottom
+                sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+              >
                 Carbohydrates
               </Typography>
-              <Typography color="text.secondary">
+              <Typography
+                color="text.secondary"
+                sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+              >
                 Carbohydrates are the body's primary energy source.
                 Complex carbohydrates from whole foods support
                 stable blood sugar and sustained energy.
@@ -210,10 +243,18 @@ export default function MacroCalculatorPage() {
             <Divider />
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography
+                variant="h6"
+                fontWeight={600}
+                gutterBottom
+                sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+              >
                 Fats
               </Typography>
-              <Typography color="text.secondary">
+              <Typography
+                color="text.secondary"
+                sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+              >
                 Healthy fats support hormone production, nutrient absorption,
                 and brain function. Fats provide 9 calories per gram.
               </Typography>
@@ -222,10 +263,18 @@ export default function MacroCalculatorPage() {
             <Divider />
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography
+                variant="h6"
+                fontWeight={600}
+                gutterBottom
+                sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
+              >
                 Choosing the Right Macro Split
               </Typography>
-              <Typography color="text.secondary">
+              <Typography
+                color="text.secondary"
+                sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+              >
                 The ideal macro distribution depends on your goals,
                 activity level, and metabolic health. Higher protein
                 is often recommended during fat loss or muscle-building phases.

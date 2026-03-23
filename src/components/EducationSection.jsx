@@ -18,7 +18,7 @@ export default function EducationSection({
         <Card sx={{ borderRadius: 5 }}>
             <Accordion defaultExpanded={defaultExpanded} sx={{ borderRadius: 5 }}>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
-                    <Typography variant="h5" fontWeight={600}>
+                    <Typography variant="h5" fontWeight={600} sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
                         {title}
                     </Typography>
                 </AccordionSummary>

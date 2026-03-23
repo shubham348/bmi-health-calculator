@@ -30,15 +30,14 @@ export default function BmiForm({ onCalculate }) {
         display: "flex",
         justifyContent: "center",
         width: "100%",
-
       }}
     >
       <Card
         sx={{
           width: {
-            xs: "100%",   // mobile
-            sm: "90%",   // tablet
-            md: "80%"     // desktop and up
+            xs: "100%",
+            sm: "90%",
+            md: "80%"
           },
           borderRadius: 5,
           boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
@@ -46,11 +45,20 @@ export default function BmiForm({ onCalculate }) {
         }}
       >
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-          <Typography variant="h5" fontWeight={600} mb={1}>
+          <Typography
+            variant="h5"
+            fontWeight={600}
+            mb={1}
+            sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}
+          >
             Check your BMI
           </Typography>
 
-          <Typography color="text.secondary" mb={3}>
+          <Typography
+            color="text.secondary"
+            mb={3}
+            sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+          >
             Enter basic details to understand your body health
           </Typography>
 
@@ -62,6 +70,7 @@ export default function BmiForm({ onCalculate }) {
                 type="number"
                 required
                 fullWidth
+                size="small"
               />
 
               <TextField
@@ -70,6 +79,7 @@ export default function BmiForm({ onCalculate }) {
                 name="gender"
                 required
                 fullWidth
+                size="small"
               >
                 <MenuItem value="male">Male</MenuItem>
                 <MenuItem value="female">Female</MenuItem>
@@ -81,6 +91,7 @@ export default function BmiForm({ onCalculate }) {
                 type="number"
                 required
                 fullWidth
+                size="small"
               />
 
               <TextField
@@ -89,6 +100,7 @@ export default function BmiForm({ onCalculate }) {
                 type="number"
                 required
                 fullWidth
+                size="small"
               />
 
               <Button
@@ -102,7 +114,7 @@ export default function BmiForm({ onCalculate }) {
                   borderRadius: 3,
                   fontWeight: 600,
                   textTransform: "none",
-                  fontSize: 16
+                  fontSize: { xs: 14, md: 16 }
                 }}
               >
                 Calculate BMI

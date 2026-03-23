@@ -54,7 +54,7 @@ export default function LeanBodyMassPage() {
 
   return (
     <PageLayout title="Lean Body Mass Calculator" showBreadcrumb>
-      <Stack spacing={6} mt={4}>
+      <Stack spacing={{ xs: 3, md: 6 }} mt={{ xs: 2, md: 4 }}>
 
         {/* ===== FORM + RESULT WRAPPER ===== */}
         <Box
@@ -64,7 +64,7 @@ export default function LeanBodyMassPage() {
               xs: "1fr",
               md: result ? "1fr 1fr" : "1fr"
             },
-            gap: 4,
+            gap: { xs: 2, md: 4 },
             alignItems: "start",
             maxWidth: 1100,
             mx: "auto"
@@ -79,12 +79,24 @@ export default function LeanBodyMassPage() {
               ...doodleCard
             }}
           >
-            <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-              <Typography variant="h5" fontWeight={600} mb={1}>
+            <CardContent sx={{ p: { xs: 2, md: 4 } }}>
+              <Typography
+                fontWeight={600}
+                mb={1}
+                sx={{
+                  fontSize: { xs: "1.2rem", md: "1.5rem" }
+                }}
+              >
                 Lean Body Mass Calculator
               </Typography>
 
-              <Typography color="text.secondary" mb={3}>
+              <Typography
+                color="text.secondary"
+                mb={3}
+                sx={{
+                  fontSize: { xs: "0.8rem", md: "0.95rem" }
+                }}
+              >
                 Calculate lean mass and fat mass using direct body fat input
                 or automatic estimation.
               </Typography>
@@ -93,24 +105,34 @@ export default function LeanBodyMassPage() {
                 value={mode}
                 exclusive
                 onChange={(e, newMode) => newMode && setMode(newMode)}
-                sx={{ mb: 3 }}
+                sx={{
+                  mb: 3,
+                  flexWrap: "wrap" // ✅ mobile safe
+                }}
               >
-                <ToggleButton value="direct">
+                <ToggleButton
+                  value="direct"
+                  sx={{ fontSize: { xs: "0.7rem", md: "0.9rem" } }}
+                >
                   Enter Body Fat %
                 </ToggleButton>
-                <ToggleButton value="auto">
+                <ToggleButton
+                  value="auto"
+                  sx={{ fontSize: { xs: "0.7rem", md: "0.9rem" } }}
+                >
                   Auto Calculate Body Fat
                 </ToggleButton>
               </ToggleButtonGroup>
 
               <form onSubmit={handleSubmit}>
-                <Stack spacing={2.5}>
+                <Stack spacing={{ xs: 2, md: 2.5 }}>
                   <TextField
                     label="Weight (kg)"
                     name="weight"
                     type="number"
                     required
                     fullWidth
+                    size="small" // ✅ mobile compact
                   />
 
                   {mode === "direct" && (
@@ -120,35 +142,35 @@ export default function LeanBodyMassPage() {
                       type="number"
                       required
                       fullWidth
+                      size="small"
                     />
                   )}
 
                   {mode === "auto" && (
                     <>
-                      <TextField select label="Gender" name="gender" required fullWidth>
+                      <TextField select label="Gender" name="gender" required fullWidth size="small">
                         <MenuItem value="male">Male</MenuItem>
                         <MenuItem value="female">Female</MenuItem>
                       </TextField>
 
-                      <TextField label="Age" name="age" type="number" required fullWidth />
-                      <TextField label="Height (cm)" name="height" type="number" required fullWidth />
-                      <TextField label="Waist (cm)" name="waist" type="number" required fullWidth />
-                      <TextField label="Neck (cm)" name="neck" type="number" required fullWidth />
+                      <TextField label="Age" name="age" type="number" required fullWidth size="small" />
+                      <TextField label="Height (cm)" name="height" type="number" required fullWidth size="small" />
+                      <TextField label="Waist (cm)" name="waist" type="number" required fullWidth size="small" />
+                      <TextField label="Neck (cm)" name="neck" type="number" required fullWidth size="small" />
                     </>
                   )}
 
                   <Button
                     type="submit"
                     variant="contained"
-                    size="large"
                     fullWidth
                     sx={{
                       mt: 1,
-                      py: 1.4,
+                      py: { xs: 1, md: 1.4 },
                       borderRadius: 3,
                       fontWeight: 600,
                       textTransform: "none",
-                      fontSize: 16
+                      fontSize: { xs: 13, md: 16 }
                     }}
                   >
                     Calculate Lean Body Mass
@@ -167,20 +189,26 @@ export default function LeanBodyMassPage() {
                 border: "1px solid #e5e7eb"
               }}
             >
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h6" gutterBottom>
+              <CardContent sx={{ p: { xs: 2, md: 4 } }}>
+                <Typography
+                  gutterBottom
+                  sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}
+                >
                   Your Results
                 </Typography>
 
-                <Typography fontSize={32} fontWeight={700}>
+                <Typography
+                  fontWeight={700}
+                  sx={{ fontSize: { xs: 22, md: 32 } }}
+                >
                   Lean Body Mass: {result.leanBodyMass} kg
                 </Typography>
 
-                <Typography fontSize={20} mt={1}>
+                <Typography sx={{ fontSize: { xs: 16, md: 20 }, mt: 1 }}>
                   Fat Mass: {result.fatMass} kg
                 </Typography>
 
-                <Typography mt={2} color="text.secondary">
+                <Typography mt={2} color="text.secondary" sx={{ fontSize: { xs: 13, md: 14 } }}>
                   Body Fat: {result.bodyFatPercent}%
                 </Typography>
               </CardContent>
@@ -188,41 +216,38 @@ export default function LeanBodyMassPage() {
           )}
         </Box>
 
-        {/* ================= EDUCATION FULL WIDTH ================= */}
-        <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%",...doodleCard }}>
+        {/* ================= EDUCATION ================= */}
+        <Box sx={{ maxWidth: 1100, mx: "auto", width: "100%", ...doodleCard }}>
           <EducationSection title="Lean Body Mass Education & Health Information">
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography sx={{ fontSize: { xs: "1rem", md: "1.2rem" }, fontWeight: 600 }}>
                 What is Lean Body Mass?
               </Typography>
-              <Typography color="text.secondary">
+              <Typography color="text.secondary" sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}>
                 Lean Body Mass (LBM) represents everything in your body except fat.
-                This includes muscles, bones, organs, connective tissue, and body fluids.
               </Typography>
             </Box>
 
             <Divider />
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography sx={{ fontSize: { xs: "1rem", md: "1.2rem" }, fontWeight: 600 }}>
                 Why It Matters
               </Typography>
-              <Typography color="text.secondary">
-                Higher lean mass supports improved metabolism,
-                insulin sensitivity, and physical performance.
+              <Typography color="text.secondary" sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}>
+                Higher lean mass supports metabolism and performance.
               </Typography>
             </Box>
 
             <Divider />
 
             <Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
+              <Typography sx={{ fontSize: { xs: "1rem", md: "1.2rem" }, fontWeight: 600 }}>
                 Lean Mass vs Muscle Mass
               </Typography>
-              <Typography color="text.secondary">
-                Lean mass includes muscle but also bones and water.
-                Muscle mass is only a portion of lean mass.
+              <Typography color="text.secondary" sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}>
+                Lean mass includes muscle, bones, and water.
               </Typography>
             </Box>
 

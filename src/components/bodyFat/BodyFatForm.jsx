@@ -41,24 +41,38 @@ export default function BodyFatForm({ onCalculate }) {
 
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
-      <Card sx={{
-        width: {
-          xs: "100%",   // mobile
-          sm: "90%",   // tablet
-          md: "80%"     // desktop and up
-        }, borderRadius: 5, ...doodleCard
-      }}>
-        <CardContent sx={{ p: { xs: 4, md: 5 } }}>
-          <Typography variant="h5" fontWeight={600} mb={1}>
+      <Card
+        sx={{
+          width: {
+            xs: "100%",
+            sm: "90%",
+            md: "80%"
+          },
+          borderRadius: 5,
+          ...doodleCard
+        }}
+      >
+        <CardContent sx={{ p: { xs: 2, md: 5 } }}>
+          {/* TITLE */}
+          <Typography
+            fontWeight={600}
+            mb={1}
+            sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}
+          >
             Body Fat Calculator
           </Typography>
 
-          <Typography color="text.secondary" mb={3}>
+          {/* SUBTEXT */}
+          <Typography
+            color="text.secondary"
+            mb={3}
+            sx={{ fontSize: { xs: "0.8rem", md: "0.95rem" } }}
+          >
             Estimate your body fat percentage using the U.S. Navy method.
           </Typography>
 
           <form onSubmit={handleSubmit}>
-            <Stack spacing={2.5}>
+            <Stack spacing={{ xs: 2, md: 2.5 }}>
               <TextField
                 select
                 label="Gender"
@@ -67,6 +81,7 @@ export default function BodyFatForm({ onCalculate }) {
                 onChange={handleChange}
                 required
                 fullWidth
+                size="small"
               >
                 <MenuItem value="male">Male</MenuItem>
                 <MenuItem value="female">Female</MenuItem>
@@ -80,6 +95,7 @@ export default function BodyFatForm({ onCalculate }) {
                 onChange={handleChange}
                 required
                 fullWidth
+                size="small"
               />
 
               <TextField
@@ -90,6 +106,7 @@ export default function BodyFatForm({ onCalculate }) {
                 onChange={handleChange}
                 required
                 fullWidth
+                size="small"
               />
 
               <TextField
@@ -100,6 +117,7 @@ export default function BodyFatForm({ onCalculate }) {
                 onChange={handleChange}
                 required
                 fullWidth
+                size="small"
               />
 
               <TextField
@@ -110,6 +128,7 @@ export default function BodyFatForm({ onCalculate }) {
                 onChange={handleChange}
                 required
                 fullWidth
+                size="small"
               />
 
               <TextField
@@ -120,6 +139,7 @@ export default function BodyFatForm({ onCalculate }) {
                 onChange={handleChange}
                 required
                 fullWidth
+                size="small"
               />
 
               {form.gender === "female" && (
@@ -131,20 +151,21 @@ export default function BodyFatForm({ onCalculate }) {
                   onChange={handleChange}
                   required
                   fullWidth
+                  size="small"
                 />
               )}
 
               <Button
                 type="submit"
                 variant="contained"
-                size="large"
                 fullWidth
                 sx={{
                   mt: 1,
-                  py: 1.4,
+                  py: { xs: 1, md: 1.4 },
                   borderRadius: 3,
                   fontWeight: 600,
-                  textTransform: "none"
+                  textTransform: "none",
+                  fontSize: { xs: 13, md: 16 }
                 }}
               >
                 Calculate Body Fat
