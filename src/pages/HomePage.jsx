@@ -5,58 +5,52 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import { useNavigate } from "react-router-dom";
 import PageLayout from "../components/PageLayout";
+import { doodleCard } from "../utils/style";
 
 const pages = [
   {
     title: "Protein Sources & Recipes",
-    description:
-      "Daily protein foods, fiber tables and recipes.",
+    description: "Daily protein foods, fiber tables and recipes.",
     path: "/protein",
-    icon: <RestaurantMenuIcon fontSize="large" />
+    icon: <RestaurantMenuIcon />
   },
   {
     title: "Macro Calculator",
     description: "Calculate protein, carbs, and fats based on your calorie target.",
     path: "/macro-calculator",
-    icon: <FitnessCenterIcon fontSize="large" />
+    icon: <FitnessCenterIcon />
   },
   {
     title: "BMI Calculator",
-    description:
-      "Calculate BMI, health category, calorie needs and protein intake.",
+    description: "Calculate BMI, health category, calorie needs and protein intake.",
     path: "/bmi",
-    icon: <FitnessCenterIcon fontSize="large" />
+    icon: <FitnessCenterIcon />
   },
   {
     title: "Body Fat Calculator",
-    description:
-      "Estimate body fat %, fat mass and lean mass insights.",
+    description: "Estimate body fat %, fat mass and lean mass insights.",
     path: "/body-fat",
-    icon: <MonitorWeightIcon fontSize="large" />
+    icon: <MonitorWeightIcon />
   },
   {
     title: "Calorie Calculator",
-    description:
-      "Find maintenance calories and weight targets.",
+    description: "Find maintenance calories and weight targets.",
     path: "/calorie",
-    icon: <LocalFireDepartmentIcon fontSize="large" />
+    icon: <LocalFireDepartmentIcon />
   },
   {
     title: "BMR Calculator",
     description: "Calculate your Basal Metabolic Rate using Mifflin-St Jeor formula.",
     path: "/bmr",
-    icon: <FitnessCenterIcon fontSize="large" />
+    icon: <FitnessCenterIcon />
   },
   {
     title: "Lean Body Mass",
     description: "Calculate lean mass and fat mass using body fat percentage.",
     path: "/lean-body-mass",
-    icon: <FitnessCenterIcon fontSize="large" />
+    icon: <FitnessCenterIcon />
   },
-
-
 ];
-import { doodleCard } from "../utils/style";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -69,10 +63,10 @@ export default function HomePage() {
           gridTemplateColumns: {
             xs: "1fr",
             sm: "1fr",
-            md: "1fr 1fr"
+            md: "1fr 1fr",
           },
-          gap: 4,
-          mt: 6
+          gap: { xs: 2, md: 4 }, // ✅ tighter on mobile
+          mt: { xs: 3, md: 6 },
         }}
       >
         {pages.map((page, index) => (
@@ -80,32 +74,74 @@ export default function HomePage() {
             key={index}
             onClick={() => navigate(page.path)}
             sx={{
-              backgroundColor: "#ffffff",
-              borderRadius: 3,
-              p: 4,
+              ...doodleCard,
+
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
-              gap: 3,
-              boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
-              transition: "all 0.3s ease",
+              gap: { xs: 1.5, md: 3 },
+
+              // ✅ padding responsive
+              px: { xs: 2, md: 3 },
+              py: { xs: 1.5, md: 3 },
+
+              // ✅ smaller radius on mobile
+              borderRadius: { xs: 2, md: 3 },
+
+              transition: "all 0.25s ease",
+
               "&:hover": {
-                transform: "translateY(-6px)",
-                boxShadow: "0 12px 30px rgba(0,0,0,0.12)"
+                transform: { md: "translateY(-6px)" }, // disable hover jump on mobile
               },
-              ...doodleCard
             }}
           >
-            <Box sx={{ color: "#004d7a" }}>
+            {/* ICON */}
+            <Box
+              sx={{
+                color: "#004d7a",
+                display: "flex",
+                alignItems: "center",
+
+                "& svg": {
+                  fontSize: {
+                    xs: 22, // ✅ smaller icon mobile
+                    md: 32,
+                  },
+                },
+              }}
+            >
               {page.icon}
             </Box>
 
+            {/* TEXT */}
             <Box>
-              <Typography variant="h6" fontWeight="bold">
+              <Typography
+                fontWeight="bold"
+                sx={{
+                  fontSize: {
+                    xs: "0.95rem", // ✅ compact mobile
+                    md: "1.2rem",
+                  },
+                  lineHeight: 1.2,
+                }}
+              >
                 {page.title}
               </Typography>
 
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                color="text.secondary"
+                sx={{
+                  fontSize: {
+                    xs: "0.75rem", // ✅ smaller desc
+                    md: "0.9rem",
+                  },
+                  mt: 0.5,
+                  display: {
+                    xs: "none", // ✅ hide description on mobile
+                    sm: "block",
+                  },
+                }}
+              >
                 {page.description}
               </Typography>
             </Box>
