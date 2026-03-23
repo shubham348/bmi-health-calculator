@@ -65,12 +65,12 @@ export default function App() {
       <CssBaseline />
       <Box
         sx={{
-          height: "100vh",
+          height: "100dvh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          overflow: "hidden",
+          overflow: "auto",
 
         }}
       >
