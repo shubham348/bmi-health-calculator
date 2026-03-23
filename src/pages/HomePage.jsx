@@ -79,7 +79,7 @@ export default function HomePage() {
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
-              gap: { xs: 1.5, md: 3 },
+              gap: { xs: 2, md: 3 },
 
               // ✅ padding responsive
               px: { xs: 2, md: 3 },
@@ -136,10 +136,6 @@ export default function HomePage() {
                     md: "0.9rem",
                   },
                   mt: 0.5,
-                  display: {
-                    xs: "none", // ✅ hide description on mobile
-                    sm: "block",
-                  },
                 }}
               >
                 {page.description}
