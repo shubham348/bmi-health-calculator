@@ -141,7 +141,7 @@ ${activeRecipe.steps.map((s, i) => `${i + 1}. ${s}`).join("\n")}
                 }}>
 
                   {/* TITLE */}
-                  <Typography fontWeight={600}>
+                  <Typography fontWeight={600} sx={{fontSize: { xs: "1.2rem", md: "1.5rem" }}}>
                     {recipe.title}
                   </Typography>
 

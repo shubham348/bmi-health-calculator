@@ -15,9 +15,9 @@ export default function ProteinTabs() {
 
   return (
     <Card sx={{ borderRadius: 5, mt: 4, ...doodleCard }}>
-      <Accordion defaultExpanded sx={{ borderRadius: 5 }}>
+      <Accordion sx={{ borderRadius: 5 }}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
-          <Typography variant="h5" fontWeight={600}>
+          <Typography variant="h5" fontWeight={600} sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
             Recipes
           </Typography>
         </AccordionSummary>
@@ -30,6 +30,7 @@ export default function ProteinTabs() {
               onChange={(e, newValue) => setTab(newValue)}
               sx={{
                 padding: "4px",
+                fontSize: { xs: "1.2rem", md: "1.5rem" }
               }}
             >
               <Tab label="🎥 Videos" />

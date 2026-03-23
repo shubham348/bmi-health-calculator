@@ -15,7 +15,7 @@ export default function ProteinChannels() {
   return (
     <Card sx={{ borderRadius: 5, ...doodleCard }}>
       <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-        <Typography variant="h6" fontWeight={600} mb={2}>
+        <Typography variant="h6" fontWeight={600} mb={2} sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
           Recommended High-Protein YouTube Channels
         </Typography>
 
@@ -45,11 +45,11 @@ export default function ProteinChannels() {
               }}
             >
               <Box>
-                <Typography fontWeight={600}>
+                <Typography fontWeight={600} sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}>
                   {channel.name}
                 </Typography>
 
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}>
                   High-protein recipes, diet tips & fitness content
                 </Typography>
               </Box>

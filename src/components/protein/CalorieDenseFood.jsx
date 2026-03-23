@@ -37,7 +37,7 @@ export default function CalorieDenseFood() {
       >
         {/* HEADER */}
         <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
-          <Typography variant="h5" fontWeight={600}>
+          <Typography variant="h5" fontWeight={600} sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
             Calorie Density Food
           </Typography>
         </AccordionSummary>
@@ -46,7 +46,7 @@ export default function CalorieDenseFood() {
         <AccordionDetails>
           <Card elevation={0}>
             <CardContent sx={{ p: { xs: 2, md: 3 } }}>
-              <Typography color="text.secondary" mb={3}>
+              <Typography color="text.secondary" mb={3} sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}>
                 Detailed nutrition breakdown including protein, calories,
                 fiber, and calorie density per 100g
               </Typography>

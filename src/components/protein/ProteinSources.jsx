@@ -42,7 +42,7 @@ export default function ProteinSources() {
           }}
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 4, py: 2 }}>
-            <Typography variant="h5" fontWeight={600}>
+            <Typography variant="h5" fontWeight={600} sx={{ fontSize: { xs: "1.2rem", md: "1.5rem" } }}>
               Daily Protein Sources (Indian Diet)
             </Typography>
           </AccordionSummary>
@@ -59,8 +59,8 @@ export default function ProteinSources() {
                     onChange={(_, v) => v && setDiet(v)}
                     sx={{ borderRadius: 3 }}
                   >
-                    <ToggleButton value="veg">Vegetarian</ToggleButton>
-                    <ToggleButton value="nonVeg">Non-Vegetarian</ToggleButton>
+                    <ToggleButton value="veg" sx={{ fontSize: { xs: "0.8rem", md: "1rem" } }}>Vegetarian</ToggleButton>
+                    <ToggleButton value="nonVeg" sx={{ fontSize: { xs: "0.8rem", md: "1rem" } }}>Non-Vegetarian</ToggleButton>
                   </ToggleButtonGroup>
                 </Stack>
 
