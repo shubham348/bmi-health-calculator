@@ -84,7 +84,7 @@ export default function App() {
 
             marginTop: 3,
             pb: {
-              xs: "120px",   // mobile (extra space for FAB + nav bar)
+              xs: "20px",   // mobile (extra space for FAB + nav bar)
               md: "80px"
             },
 
